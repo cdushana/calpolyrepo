@@ -31,7 +31,8 @@ public class MyStack<T>
 	{
 		if(isEmpty())
 		{
-			throw new EmptyStackException("Invalid operation on an empty stack");
+			System.out.println("Invalid operation on an empty stack");
+			throw new EmptyStackException();
 		}
 		T topElement = top.element;
 		top = top.link;
@@ -45,7 +46,8 @@ public class MyStack<T>
 	{
 		if(isEmpty())
 		{
-			throw new EmptyStackException("Invalid operation on an empty stack");
+			System.out.println("Invalid operation on an empty stack");
+			throw new EmptyStackException();
 		}
 		return top.element;
 	}

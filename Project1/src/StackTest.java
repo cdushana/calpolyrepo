@@ -9,7 +9,8 @@ public class StackTest
 
 		System.out.println("Choose one of the following operations:\n- push/add (enter the letter a)\n- pop/delete (enter the letter d)\n- peek (enter the letter p)\n- check if the list is empty (enter the letter e)\n- Quit (enter the letter q)");
 
-		String string = scanner.nextLine();
+		String string = scanner.next();
+		string = string.substring(0,1);
 
 		while(!scanner.hasNext("q"))
 		{ //SUBSTRING // String class: getChars() OR charAt()
@@ -17,11 +18,11 @@ public class StackTest
 			input = scanner.next();
 			switch(input)
 			{
-				case "a": System.out.println(push(input) + "pushed in");
+				case "a": System.out.println(push(input) + "pushed in"); // input read as one line
 
 				case "d": System.out.println(pop() + "pushed out");
 
-				case "p": System.out.println(peek() + "on the top"); // input read as one line
+				case "p": System.out.println(peek() + "on the top");
 
 				case "e": if(isEmpty()){System.out.println("empty");}
 						  else{System.out.println("not empty");}
