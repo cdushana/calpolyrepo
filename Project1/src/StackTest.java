@@ -4,37 +4,46 @@ public class StackTest
 {
 	public static void main(String[] args)
 	{
-		MyStack stringStack = new MyStack();
+		MyStack<String> stringStack = new MyStack<String>();
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Choose one of the following operations:\n- push/add (enter the letter a)\n- pop/delete (enter the letter d)\n- peek (enter the letter p)\n- check if the list is empty (enter the letter e)\n- Quit (enter the letter q)");
 
-		String string = scanner.next();
-		string = string.substring(0,1);
+		String input = scanner.next();
+		// string = string.trim(); //remove any leading or trailing spaces | might not be needed
+		input = input.substring(0,1); // keep only the first character of input
 
-		while(!scanner.hasNext("q"))
-		{ //SUBSTRING // String class: getChars() OR charAt()
-			String input = new String();
-			input = scanner.next();
+		while(!input.equals("q"))
+		{
+
 			switch(input)
 			{
-				case "a": System.out.println(push(input) + "pushed in"); // input read as one line
+				case "a": System.out.println("What would you like to push to stack?");
+					String toPush = scanner.nextLine();
+					stringStack.push(toPush);
+					System.out.println(toPush + " pushed in");
 
-				case "d": System.out.println(pop() + "pushed out");
+				case "d": System.out.println(stringStack.pop() + " popped out");
 
-				case "p": System.out.println(peek() + "on the top");
+				case "p": System.out.println(stringStack.peek() + " on the top"); // input read as one line
 
-				case "e": if(isEmpty()){System.out.println("empty");}
-						  else{System.out.println("not empty");}
+				case "e": if(stringStack.isEmpty()){System.out.println("empty");}
+					else{System.out.println("not empty");}
 
 				case "q": System.out.println("quitting");
-					
+					break;
+			
 				default: System.out.println("Invalid choice");
 			}
+			
+			input = scanner.next();
+			// string = string.trim(); //remove any leading or trailing spaces | might not be needed
+			input = input.substring(0,1); // keep only the first character of input
 
-			System.out.println("Goodbye!"); // 5. Farewell message
 		}
 
+		System.out.println("Goodbye!");
+		
 		// 4. For as long as the user does not choose to quit, do the following:
 		// - Prompt the user to enter a menu choice (do NOT print the menu here; remember, the menu
 		// should be output ONLY ONCE, in step 3, before entering this loop).
