@@ -22,13 +22,17 @@ public class StackTest
 					String toPush = scanner.nextLine();
 					stringStack.push(toPush);
 					System.out.println(toPush + " pushed in");
+					break;
 
 				case "d": System.out.println(stringStack.pop() + " popped out");
+					break;
 
 				case "p": System.out.println(stringStack.peek() + " on the top"); // input read as one line
+					break;
 
 				case "e": if(stringStack.isEmpty()){System.out.println("empty");}
 					else{System.out.println("not empty");}
+					break;
 
 				case "q": System.out.println("quitting");
 					break;
