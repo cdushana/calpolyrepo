@@ -34,6 +34,13 @@ public class StackTest
 						  else{System.out.println("not empty");}
 						  break;
 
+				case "p": System.out.println(stringStack.peek() + " on the top"); // input read as one line
+					break;
+
+				case "e": if(stringStack.isEmpty()){System.out.println("empty");}
+					else{System.out.println("not empty");}
+					break;
+
 				case "q": System.out.println("quitting");
 						  break;
 			
