@@ -1,5 +1,6 @@
 import java.util.*;
 
+<<<<<<< HEAD
 public class MyStack<T>
 {
 	private class Node
@@ -57,3 +58,8 @@ public class MyStack<T>
 		return (top == null);
 	}
 }	
+=======
+public class MyStack {
+	//comment test
+}
+>>>>>>> origin/master
