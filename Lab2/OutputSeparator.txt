@@ -1,0 +1,35 @@
+Input a series of integer and float values.
+1 2 3 4
+5 6 7 8
+Integers: 1 2 3 4 5
+Floats:         
+ 
+Input a series of integer and float values.
+1.0 1 2.0 2
+3.0 3
+4
+q
+Integers: 1 2 3 4  
+Floats: 1.0 2.0 3.0    
+
+Input a series of integer and float values.
+1.0 1 2.0
+3.0 2 4.0
+5.0 3 6.0 4 7.0 5
+Integers: 1 2 3    
+Floats: 1.0 2.0 3.0 4.0 5.0
+
+Input a series of integer and float values.
+1 1.0 2 3 2.0 aa 3.0 4 5 bb
+Integers: 1 2 3    
+Floats: 1.0 2.0    
+  
+Input a series of integer and float values.
+* 88 *
+Integers:          
+Floats:          
+
+Input a series of integer and float values.
+q
+Integers:          
+Floats:          
