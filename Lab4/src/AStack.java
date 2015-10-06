@@ -10,48 +10,39 @@ public class AStack<T> {
 		top = -1;
 	}
 	
-	public void enqueue(T addThis) {
+	public void push(T addThis) {
 		
-		// if full, double array
-		/*
-		if( something) {
-		
-		}
-		 */
-		
-		if(isEmpty()) {
-			front.element = addThis;
-			front.link = null;
-			back = front;
+		if(top >= arr.length - 1) {
+			// double array
 		}
 		
-		else {
-			Node next = null;
-			next.element = addThis;
-			next.link = null;
-			
-			back.link = next;
-			back = next;
-		}
+		top++;
+		
+		arr[top] = addThis;
 	}
 	
-	public T dequeue() {
+	public T pop() {
 		if(isEmpty()) {
-			throw new MyException("MyException dequeue");
+			throw new EmptyStackException();
 		}
 		
-		// save values in front node for use
-		T dequeued = front.element;
-		Node next = front.link;
+		T popped = arr[top];
+		top--;
 		
-		// garbage collection
+		return popped;
+	}
+	
+	public T peek() {
+		if(isEmpty()) {
+			throw new EmptyStackException();
+		}
 		
-		front = next; // shift index up after dequeueing
+		T topElement = arr[top];
 		
-		return dequeued;
+		return topElement;
 	}
 	
 	public boolean isEmpty() {
-		return (front.element == null);
+		return (top < 0);
 	}
 }

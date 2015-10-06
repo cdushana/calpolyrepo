@@ -38,6 +38,14 @@ public class LQueue<T> {
 		}
 		
 		// otherwise just change the end
+		else if(front.link == null)
+		{
+			Node next = new Node();
+			next.element = addThis;
+			front.link = next;
+			end = next;
+		}
+		
 		else {
 			Node next = new Node();
 			next.element = addThis;

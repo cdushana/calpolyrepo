@@ -1,14 +1,15 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class LQueueDriver {
+public class AStackDriver {
 
 	public static void main(String[] args) {
-		LQueue<Integer> myQueue = new LQueue<Integer>();
+		AStack<Integer> myQueue = new AStack<Integer>(5);
 	
 		System.out.println("Choose one of the following operations:");
-		System.out.println("-- enqueue/add (enter the letter a)");
-		System.out.println("-- dequeue/delete (enter the letter d)");
-		System.out.println("-- check if the queue is empty (enter the letter e)");
+		System.out.println("-- push/add (enter the letter a)");
+		System.out.println("-- pop/delete (enter the letter d)");
+		System.out.println("-- peek at the top value of the stack (enter the letter p)");
+		System.out.println("-- check if the stack is empty (enter the letter e)");
 		System.out.println("-- quit (enter the letter q)");
 		
 		Scanner scanner = new Scanner(System.in);
@@ -66,3 +67,4 @@ public class LQueueDriver {
 		System.out.println("Goodbye!");		
 	}
 }
+
