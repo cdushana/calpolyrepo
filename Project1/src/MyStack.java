@@ -31,7 +31,6 @@ public class MyStack<T>
 	{
 		if(isEmpty())
 		{
-			System.out.println("Invalid operation on an empty stack");
 			throw new EmptyStackException();
 		}
 		T topElement = top.element;
@@ -46,7 +45,6 @@ public class MyStack<T>
 	{
 		if(isEmpty())
 		{
-			System.out.println("Invalid operation on an empty stack");
 			throw new EmptyStackException();
 		}
 		return top.element;
