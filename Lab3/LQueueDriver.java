@@ -1,6 +1,3 @@
-// enqueue shouldnt be taking in the entire line, just first letter
-// then newline will be taken in
-
 import java.util.*;
 
 public class LQueueDriver {
@@ -30,17 +27,17 @@ public class LQueueDriver {
 			switch(result)
 			{
 				case 'a': 
-					System.out.println("What would you like to enqueue?");
-					if(scanner.hasNextLine())
+					System.out.println("enqueue: ");
+					if(!scanner.hasNextInt())
 					{
-						int toQueue = scanner.nextInt();
-						queue.enqueue(toQueue);
-						System.out.println(toQueue + " enqueued");
+						System.out.println("Invalid value"); // Invalid choice is also outputted | FIX
 						break;
 					}
 					else
 					{
-						System.out.println("Invalid value"); // Invalid choice is also outputted | FIX
+						int toQueue = scanner.nextInt();
+						queue.enqueue(toQueue);
+						System.out.println(toQueue + " enqueued");
 						break;
 					}
 					
@@ -56,7 +53,6 @@ public class LQueueDriver {
 					break;
 
 				case 'e': 
-					System.out.println(queue.isEmpty()); // test
 					if(queue.isEmpty())
 					{
 						System.out.println("empty");
@@ -73,11 +69,19 @@ public class LQueueDriver {
 					break;
 			
 				default: 
-					System.out.println("Invalid choice");
-					break;
+					// if((result != 'q') || (result != 'e') || (result != 'a') || (result != 'd'))
+					// {
+						System.out.println("Invalid choice");
+						break;
+					//}
 			}
 		}
 		scanner.close();
-		System.out.println("Goodbye!");		
+		// remainder of queue is output
+		while(!queue.isEmpty())
+		{
+			System.out.print(queue.dequeue() + " ");
+		}
+		System.out.println("\nGoodbye!");		
 	}
 }

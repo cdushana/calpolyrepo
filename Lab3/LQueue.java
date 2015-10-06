@@ -1,4 +1,3 @@
-
 public class LQueue<T> {
 	
 	private class Node {
@@ -29,8 +28,8 @@ public class LQueue<T> {
 	private Node end;
 	
 	public LQueue() {
-		front = null; // changed from new Node(); to fix isEmpty
-		end = null; // changed from new Node(); to fix isEmpty
+		front = null;
+		end = null;
 	}
 	
 	public void enqueue(T addThis) {
