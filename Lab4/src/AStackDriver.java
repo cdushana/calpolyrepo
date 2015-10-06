@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class AStackDriver {
 
 	public static void main(String[] args) {
-		AStack<Integer> myQueue = new AStack<Integer>(5);
+		AStack<Integer> stack = new AStack<Integer>(5);
 	
 		System.out.println("Choose one of the following operations:");
 		System.out.println("-- push/add (enter the letter a)");
@@ -25,25 +25,36 @@ public class AStackDriver {
 			switch(input)
 			{
 				case "a": 
-					System.out.println("What would you like to enqueue?");
-					int toQueue = scanner.nextInt();
-					myQueue.enqueue(toQueue);
-					System.out.println(toQueue + " enqueued");
+					System.out.println("What would you like to push?");
+					int toPush = scanner.nextInt();
+					stack.push(toPush);
+					System.out.println(toPush + " pushed");
 					break;
 
 				case "d": 
 					try
 					{
-						System.out.println(myQueue.dequeue() + " dequeued");
+						System.out.println(stack.pop() + " popped");
 					}
 					catch(Exception e)
 					{
-						System.out.println("Invalid operation: queue is empty.");
+						System.out.println("Invalid operation: stack is empty.");
 					}
 					break;
-
+					
+				case "p": 
+					try
+					{
+						System.out.println(stack.peek() + " is the top value");
+					}
+					catch(Exception e)
+					{
+						System.out.println("Invalid operation: stack is empty.");
+					}
+					break;
+					
 				case "e": 
-					if(myQueue.isEmpty())
+					if(stack.isEmpty())
 					{
 						System.out.println("empty");
 					}

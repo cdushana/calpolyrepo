@@ -3,7 +3,7 @@ import java.util.*;
 public class LQueueDriver {
 
 	public static void main(String[] args) {
-		LQueue<Integer> myQueue = new LQueue<Integer>();
+		LQueue<Integer> queue = new LQueue<Integer>();
 	
 		System.out.println("Choose one of the following operations:");
 		System.out.println("-- enqueue/add (enter the letter a)");
@@ -26,14 +26,14 @@ public class LQueueDriver {
 				case "a": 
 					System.out.println("What would you like to enqueue?");
 					int toQueue = scanner.nextInt();
-					myQueue.enqueue(toQueue);
+					queue.enqueue(toQueue);
 					System.out.println(toQueue + " enqueued");
 					break;
 
 				case "d": 
 					try
 					{
-						System.out.println(myQueue.dequeue() + " dequeued");
+						System.out.println(queue.dequeue() + " dequeued");
 					}
 					catch(Exception e)
 					{
@@ -42,7 +42,7 @@ public class LQueueDriver {
 					break;
 
 				case "e": 
-					if(myQueue.isEmpty())
+					if(queue.isEmpty())
 					{
 						System.out.println("empty");
 					}
