@@ -13,12 +13,14 @@ public class LQueueDriver {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		String input = scanner.next();
-		// string = string.trim(); //remove any leading or trailing spaces | might not be needed
-		input = input.substring(0,1);
+		boolean run = true;
 
-		while(!input.equals("q"))
+		while(run)
 		{
+			String input = scanner.next();
+			// string = string.trim(); //remove any leading or trailing spaces | might not be needed
+			input = input.substring(0,1);
+			
 			switch(input)
 			{
 				case "a": 
@@ -52,18 +54,15 @@ public class LQueueDriver {
 
 				case "q": 
 					System.out.println("quitting");
+					run = false;
 					break;
 			
 				default: 
 					System.out.println("Invalid choice");
 					break;
 			}
-			
-			input = scanner.next();
-			// string = string.trim(); //remove any leading or trailing spaces | might not be needed
-			input = input.substring(0,1);
-
 		}
-		
+		scanner.close();
+		System.out.println("Goodbye!");		
 	}
 }

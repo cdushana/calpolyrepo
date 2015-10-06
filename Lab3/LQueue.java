@@ -4,6 +4,11 @@ public class LQueue<T> {
 	private class Node {
 		public T element;
 		public Node link;
+		
+		public Node() {
+			element = null;
+			link = null;
+		}
 	}
 	
 	public static class MyException extends RuntimeException {
@@ -19,8 +24,8 @@ public class LQueue<T> {
 	private Node end;
 	
 	public LQueue() {
-		front = null;
-		end = null;
+		front = new Node();
+		end = new Node();
 	}
 	
 	public void enqueue(T addThis) {
@@ -34,9 +39,8 @@ public class LQueue<T> {
 		
 		// otherwise just change the end
 		else {
-			Node next = null;
+			Node next = new Node();
 			next.element = addThis;
-			next.link = null;
 			
 			end.link = next;
 			end = next;
