@@ -1,3 +1,6 @@
+// enqueue shouldnt be taking in the entire line, just first letter
+// then newline will be taken in
+
 import java.util.*;
 
 public class LQueueDriver {
@@ -17,20 +20,31 @@ public class LQueueDriver {
 
 		while(run)
 		{
-			String input = scanner.next();
-			// string = string.trim(); //remove any leading or trailing spaces | might not be needed
-			input = input.substring(0,1);
-			
-			switch(input)
+			char result = ' ';
+			String input = scanner.nextLine();
+			if(input.length() > 0)
 			{
-				case "a": 
+				result = input.charAt(0);
+			}
+			
+			switch(result)
+			{
+				case 'a': 
 					System.out.println("What would you like to enqueue?");
-					int toQueue = scanner.nextInt();
-					queue.enqueue(toQueue);
-					System.out.println(toQueue + " enqueued");
-					break;
-
-				case "d": 
+					if(scanner.hasNextLine())
+					{
+						int toQueue = scanner.nextInt();
+						queue.enqueue(toQueue);
+						System.out.println(toQueue + " enqueued");
+						break;
+					}
+					else
+					{
+						System.out.println("Invalid value"); // Invalid choice is also outputted | FIX
+						break;
+					}
+					
+				case 'd': 
 					try
 					{
 						System.out.println(queue.dequeue() + " dequeued");
@@ -41,7 +55,8 @@ public class LQueueDriver {
 					}
 					break;
 
-				case "e": 
+				case 'e': 
+					System.out.println(queue.isEmpty()); // test
 					if(queue.isEmpty())
 					{
 						System.out.println("empty");
@@ -52,7 +67,7 @@ public class LQueueDriver {
 					}
 					break;
 
-				case "q": 
+				case 'q': 
 					System.out.println("quitting");
 					run = false;
 					break;
