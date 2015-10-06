@@ -18,20 +18,23 @@ public class StackTest {
 
 		while(run)
 		{
-			String input = scanner.next();
-			// string = string.trim(); //remove any leading or trailing spaces | might not be needed
-			input = input.substring(0,1);
-			
-			switch(input)
+			char result = ' ';
+			String input = scanner.nextLine();
+			if(input.length() > 0)
 			{
-				case "a": 
-					System.out.println("What would you like to push?");
+				result = input.charAt(0);
+			}
+			
+			switch(result)
+			{
+				case 'a': 
+					System.out.println("push: ");
 					String toPush = scanner.nextLine();
 					stack.push(toPush);
 					System.out.println(toPush + " pushed");
 					break;
 
-				case "d": 
+				case 'd': 
 					try
 					{
 						System.out.println(stack.pop() + " popped");
@@ -42,7 +45,7 @@ public class StackTest {
 					}
 					break;
 					
-				case "p": 
+				case 'p': 
 					try
 					{
 						System.out.println(stack.peek() + " is the top value");
@@ -53,7 +56,7 @@ public class StackTest {
 					}
 					break;
 					
-				case "e": 
+				case 'e': 
 					if(stack.isEmpty())
 					{
 						System.out.println("empty");
@@ -64,7 +67,7 @@ public class StackTest {
 					}
 					break;
 
-				case "q": 
+				case 'q': 
 					System.out.println("quitting");
 					run = false;
 					break;
