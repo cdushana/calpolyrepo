@@ -6,7 +6,7 @@ public class AStack<T> {
 	private int top;
 	
 	public AStack(int size) {
-		arr = new T[size];
+		arr = (T[]) new Object[size]; // generic array declaration? | must use casting
 		top = -1;
 	}
 	
