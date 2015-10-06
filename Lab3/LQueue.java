@@ -16,35 +16,30 @@ public class LQueue<T> {
 	}
 	
 	private Node front;
-	private Node back;
+	private Node end;
 	
 	public LQueue() {
 		front = null;
-		back = null;
+		end = null;
 	}
 	
 	public void enqueue(T addThis) {
 		
-		// if full, double array
-		/*
-		if( something) {
-		
-		}
-		 */
-		
+		// if empty, we need to initialize the front as well as end
 		if(isEmpty()) {
 			front.element = addThis;
 			front.link = null;
-			back = front;
+			end = front;
 		}
 		
+		// otherwise just change the end
 		else {
 			Node next = null;
 			next.element = addThis;
 			next.link = null;
 			
-			back.link = next;
-			back = next;
+			end.link = next;
+			end = next;
 		}
 	}
 	
@@ -55,16 +50,16 @@ public class LQueue<T> {
 		
 		// save values in front node for use
 		T dequeued = front.element;
-		Node next = front.link;
 		
-		// garbage collection
-		
-		front = next; // shift index up after dequeueing
+		// shift index up after dequeueing
+		front = front.link;
 		
 		return dequeued;
 	}
 	
 	public boolean isEmpty() {
-		return (front.element == null);
+		boolean empty = (front == null);
+		
+		return empty;
 	}
 }
