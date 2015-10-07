@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AStackDriver {
+public class AStackClient {
 
 	public static void main(String[] args) {
 		AStack<Integer> stack = new AStack<Integer>(5);

@@ -13,7 +13,12 @@ public class AStack<T> {
 	public void push(T addThis) {
 		
 		if(top >= arr.length - 1) {
-			// double array
+			T[] arr2 = (T[]) new Object[arr.length*2]; // new array doubled in size
+			for(int i = 0; i < arr.length; i++) {
+				arr2[i] = arr[i];
+			}
+			
+			arr = arr2; // point arr to new array
 		}
 		
 		top++;
