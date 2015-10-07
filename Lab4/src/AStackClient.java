@@ -19,7 +19,7 @@ public class AStackClient {
 		while(lineScanner.hasNextLine()) {
 			lineParser = new Scanner(lineScanner.nextLine());
 
-			while(lineScanner.hasNext())
+			while(lineScanner.hasNextLine())
 			{
 				if(lineParser.hasNextInt()) {
 					integers.push(lineParser.nextInt());
@@ -29,8 +29,11 @@ public class AStackClient {
 					floats.push(lineParser.nextFloat());
 				}
 				
-				else {
+				else if(lineParser.hasNext()) {
 					strings.push(lineParser.next());
+				}
+				else {
+					break;
 				}
 			}
 		}
@@ -44,12 +47,12 @@ public class AStackClient {
 		{
 			System.out.print(strings.pop() + " ");
 		}
-		System.out.println("\nFloats: ");		
+		System.out.print("\nFloats: ");		
 		while(!floats.isEmpty())
 		{
 			System.out.print(floats.pop() + " ");
 		}
-		System.out.println("\nIntegers: ");		
+		System.out.print("\nIntegers: ");		
 		while(!integers.isEmpty())
 		{
 			System.out.print(integers.pop() + " ");
