@@ -14,21 +14,27 @@ public class AStackClient {
 		String filename = getFile.next();
 		getFile.close();
 		
-		Scanner scanner = new Scanner(new File(filename));
+		Scanner lineScanner = new Scanner(new File(filename));
+		Scanner lineParser = new Scanner(" ");
 		
-		while(scanner.hasNext()) {
-			if() {
+		while(lineScanner.hasNextLine()) {
+			lineParser = new Scanner(lineScanner.nextLine());
+
+			while(lineScanner.hasNext())
+			{
+				if(lineParser.hasNext()) {
 				int num = Integer.parseInt(scanner.next());
 				integers.push(num);
-			}
-			
-			else if() {
-				float num = Integer.parseFloat(scanner.next());
-				floats.push(num);
-			}
-			
-			else {
-				strings.push(scanner.next());
+				}
+				
+				else if(lineParser.hasNextFloat()) {
+					float num = Integer.parseFloat(scanner.next());
+					floats.push(num);
+				}
+				
+				else if(lineParser.hasNextInt()) {
+					strings.push(scanner.next());
+				}
 			}
 		}
 
