@@ -18,7 +18,7 @@ public class LQueueDriver {
 		while(run)
 		{
 			char result = ' ';
-			String input = scanner.nextLine();
+			String input = scanner.next();
 			if(input.length() > 0)
 			{
 				result = input.charAt(0);
@@ -31,15 +31,14 @@ public class LQueueDriver {
 					if(!scanner.hasNextInt())
 					{
 						System.out.println("Invalid value"); // Invalid choice is also outputted | FIX
-						break;
 					}
 					else
 					{
 						int toQueue = scanner.nextInt();
 						queue.enqueue(toQueue);
 						System.out.println(toQueue + " enqueued");
-						break;
 					}
+					break;
 					
 				case 'd': 
 					try
@@ -69,11 +68,8 @@ public class LQueueDriver {
 					break;
 			
 				default: 
-					// if((result != 'q') || (result != 'e') || (result != 'a') || (result != 'd'))
-					// {
-						System.out.println("Invalid choice");
-						break;
-					//}
+					System.out.println("Invalid choice");
+					break;
 			}
 		}
 		scanner.close();
