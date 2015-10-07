@@ -80,7 +80,7 @@ public class LQueueDriver {
 		// print what is left in the queue
 		while(!queue.isEmpty())
 		{
-			System.out.print("Queue: " + queue.dequeue() + " ");
+			System.out.print(queue.dequeue() + " ");
 		}
 		System.out.println("\nGoodbye!");		
 	}
