@@ -78,7 +78,13 @@ public class LQueueDriver {
 		scanner.close();
 		
 		// print what is left in the queue
-		while(!queue.isEmpty())
+		if(queue.isEmpty)
+		{
+			System.out.println("There is nothing left in the queue.");
+		}
+		else
+		{
+			while(!queue.isEmpty())
 		{
 			System.out.print(queue.dequeue() + " ");
 		}
