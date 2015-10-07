@@ -23,22 +23,21 @@ public class AStackClient {
 			while(lineScanner.hasNext())
 			{
 				if(lineParser.hasNext()) {
-				int num = Integer.parseInt(scanner.next());
-				integers.push(num);
+				integers.push(lineParser.nextInt());
 				}
 				
 				else if(lineParser.hasNextFloat()) {
-					float num = Integer.parseFloat(scanner.next());
-					floats.push(num);
+					floats.push(lineParser.nextFloat());
 				}
 				
 				else if(lineParser.hasNextInt()) {
-					strings.push(scanner.next());
+					strings.push(lineParser.next());
 				}
 			}
 		}
 
-		scanner.close();
+		lineScanner.close();
+		lineParser.close();
 		
 		System.out.print("Strings: ");
 		while(!strings.isEmpty())
