@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class StackTest {
 
@@ -27,11 +27,19 @@ public class StackTest {
 			
 			switch(result)
 			{
-				case 'a': 
-					System.out.println("push: ");
-					String toPush = scanner.nextLine();
-					stack.push(toPush);
-					System.out.println(toPush + " pushed");
+				case 'a':
+					if(!scanner.hasNextInt() && !scanner.hasNextFloat())
+					{
+						System.out.println("push: ");
+						String toPush = scanner.nextLine();
+						stack.push(toPush);
+						System.out.println(toPush + " pushed");
+					}
+					else
+					{
+						System.out.println("Invalid value");
+						scanner.nextLine(); // this is done to make sure any extra newlines are thrown away
+					}
 					break;
 
 				case 'd': 
