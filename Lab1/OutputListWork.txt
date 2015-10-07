@@ -1,0 +1,114 @@
+Christiana-Ushanas-MacBook-Pro:Lab1 JoeMacPro$ javac ListWork.java
+Christiana-Ushanas-MacBook-Pro:Lab1 JoeMacPro$ java ListWork
+Enter at least 10 integers.
+1 John 2.5 2
+3 yes 7.2 4 xyz abc 
+
+xxx 5 6
+ok 7 8 aa 9 10 a b 55 cc
+Input an integer to search for an element within your array.
+Press 'q' to quit.
+1
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+4
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+2.5
+//invalid value.
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+xyz
+//invalid value.
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+-1
+//not found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+0
+//not found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+7
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+10
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+15
+//not found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+55
+//not found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+.05
+//invalid value.
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+m
+//invalid value.
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+q
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Christiana-Ushanas-MacBook-Pro:Lab1 JoeMacPro$ java ListWork
+Enter at least 10 integers.
+1 2 2 3 3 3 4 4 4 4
+Input an integer to search for an element within your array.
+Press 'q' to quit.
+1
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+3
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+4
+//found
+
+Enter an integer to search for within your array.
+Press 'q' to quit.
+q
+
+1
+2
+2
+3
+3
+3
+4
+4
+4
+4
