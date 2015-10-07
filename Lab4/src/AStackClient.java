@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 
 public class AStackClient {
@@ -9,8 +10,30 @@ public class AStackClient {
 	
 		System.out.println("Please enter a file name:");
 		
-		Scanner scanner = new Scanner(System.in);
-		String filename = scanner.next();
+		Scanner getFile = new Scanner(System.in);
+		String filename = getFile.next();
+		getFile.close();
+		
+		Scanner scanner = new Scanner(new File(filename));
+		
+		while(scanner.hasNext()) {
+			if() {
+				integers.push(scanner.next());
+			}
+			
+			else if() {
+				floats.push(scanner.next());
+			}
+			
+			else {
+				strings.push(scanner.next());
+			}
+		}
+		//scan file
+		
+		if(/*integer*/) {
+			
+		}
 		
 		scanner.close();
 		
