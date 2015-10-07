@@ -8,11 +8,9 @@ public class AStackClient {
 		AStack<Float> floats = new AStack<Float>(5);
 		AStack<Integer> integers = new AStack<Integer>(5);
 	
-		System.out.println("Please enter a file name:");
-		
 		Scanner getFile = new Scanner(System.in);
+		System.out.println("Please enter a file name:");
 		String filename = getFile.next();
-		getFile.close();
 		
 		Scanner lineScanner = new Scanner(new File(filename));
 		Scanner lineParser = new Scanner(" ");
@@ -38,6 +36,7 @@ public class AStackClient {
 
 		lineScanner.close();
 		lineParser.close();
+		getFile.close();
 		
 		System.out.print("Strings: ");
 		while(!strings.isEmpty())
