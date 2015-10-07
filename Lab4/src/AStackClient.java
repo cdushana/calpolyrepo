@@ -34,9 +34,21 @@ public class AStackClient {
 
 		scanner.close();
 		
-		System.out.println("Strings: ");
-		System.out.println("Floats: ");		
-		System.out.println("Integers: ");		
+		System.out.print("Strings: ");
+		while(!strings.isEmpty())
+		{
+			System.out.print(strings.pop() + " ");
+		}
+		System.out.println("\nFloats: ");		
+		while(!floats.isEmpty())
+		{
+			System.out.print(floats.pop() + " ");
+		}
+		System.out.println("\nIntegers: ");		
+		while(!integers.isEmpty())
+		{
+			System.out.print(integers.pop() + " ");
+		}
 	}
 }
 
