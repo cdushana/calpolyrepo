@@ -19,7 +19,7 @@ public class AStackClient {
 		while(lineScanner.hasNextLine()) {
 			lineParser = new Scanner(lineScanner.nextLine());
 
-			while(lineScanner.hasNextLine())
+			while(lineParser.hasNext())
 			{
 				if(lineParser.hasNextInt()) {
 					integers.push(lineParser.nextInt());
@@ -31,9 +31,6 @@ public class AStackClient {
 				
 				else if(lineParser.hasNext()) {
 					strings.push(lineParser.next());
-				}
-				else {
-					break;
 				}
 			}
 		}
