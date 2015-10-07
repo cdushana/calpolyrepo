@@ -18,23 +18,20 @@ public class AStackClient {
 		
 		while(scanner.hasNext()) {
 			if() {
-				integers.push(scanner.next());
+				int num = Integer.parseInt(scanner.next());
+				integers.push(num);
 			}
 			
 			else if() {
-				floats.push(scanner.next());
+				float num = Integer.parseFloat(scanner.next());
+				floats.push(num);
 			}
 			
 			else {
 				strings.push(scanner.next());
 			}
 		}
-		//scan file
-		
-		if(/*integer*/) {
-			
-		}
-		
+
 		scanner.close();
 		
 		System.out.println("Strings: ");
