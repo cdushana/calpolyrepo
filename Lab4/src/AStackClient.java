@@ -1,9 +1,10 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class AStackClient {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		AStack<String> strings = new AStack<String>(5);
 		AStack<Float> floats = new AStack<Float>(5);
 		AStack<Integer> integers = new AStack<Integer>(5);
@@ -20,15 +21,15 @@ public class AStackClient {
 
 			while(lineScanner.hasNext())
 			{
-				if(lineParser.hasNext()) {
-				integers.push(lineParser.nextInt());
+				if(lineParser.hasNextInt()) {
+					integers.push(lineParser.nextInt());
 				}
 				
 				else if(lineParser.hasNextFloat()) {
 					floats.push(lineParser.nextFloat());
 				}
 				
-				else if(lineParser.hasNextInt()) {
+				else {
 					strings.push(lineParser.next());
 				}
 			}
