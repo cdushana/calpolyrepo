@@ -18,7 +18,8 @@ public class LQueueDriver {
 		while(run)
 		{
 			char result = ' ';
-			String input = scanner.next();
+			String input = scanner.nextLine();
+
 			if(input.length() > 0)
 			{
 				result = input.charAt(0);
@@ -31,10 +32,12 @@ public class LQueueDriver {
 					if(!scanner.hasNextInt())
 					{
 						System.out.println("Invalid value"); // Invalid choice is also outputted | FIX
+						scanner.nextLine();
 					}
 					else
 					{
 						int toQueue = scanner.nextInt();
+						scanner.nextLine();
 						queue.enqueue(toQueue);
 						System.out.println(toQueue + " enqueued");
 					}
@@ -73,10 +76,11 @@ public class LQueueDriver {
 			}
 		}
 		scanner.close();
-		// remainder of queue is output
+		
+		// print what is left in the queue
 		while(!queue.isEmpty())
 		{
-			System.out.print(queue.dequeue() + " ");
+			System.out.print("Queue: " + queue.dequeue() + " ");
 		}
 		System.out.println("\nGoodbye!");		
 	}
