@@ -28,13 +28,20 @@ public class AStackDriver {
 			switch(result)
 			{
 				case 'a': 
-					System.out.println("What would you like to push?");
-					int toPush = scanner.nextInt();
-					scanner.nextLine();
-					stack.push(toPush);
-					System.out.println(toPush + " pushed");
+					if(!scanner.hasNextInt())
+					{
+						System.out.println("Invalid value");
+						scanner.nextLine(); // this is done to make sure any extra newlines are thrown away
+					}
+					else
+					{
+						int toPush = scanner.nextInt();
+						scanner.nextLine();
+						stack.push(toPush);
+						System.out.println(toPush + " pushed");
+					}
 					break;
-
+					
 				case 'd': 
 					try
 					{
@@ -79,6 +86,19 @@ public class AStackDriver {
 			}
 		}
 		scanner.close();
+
+		if(stack.isEmpty())
+		{
+			System.out.println("There is nothing left in the stack.");
+		}
+		else
+		{
+			System.out.print("Stack: ");
+			while(!stack.isEmpty()) {
+				System.out.print(stack.pop() + " ");
+			}
+		}
+
 		System.out.println("Goodbye!");		
 	}
 }
