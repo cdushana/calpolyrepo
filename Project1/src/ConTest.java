@@ -42,7 +42,7 @@ public class ConTest
 
 					// expression is assigned to the entire line of input
 					expression = scanner.nextLine();
-					System.out.println("the postfix expression is: " + converter.infixToPostFix(expression));
+					System.out.println("the postfix expression is: " + converter.infixToPostfix(expression));
 					break;
 
 				case 'p': 
@@ -58,7 +58,7 @@ public class ConTest
 
 					// expression is assigned to the entire line of input
 					expression = scanner.nextLine();
-					System.out.println("the value of the arithmetic expression is: " + converter.infixToPostFix(converter.postfixValue(expression)));
+					System.out.println("the value of the arithmetic expression is: " + converter.infixToPostfix(converter.postfixValue(expression)));
 					break;
 
 				case 'q': 
