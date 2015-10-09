@@ -13,28 +13,41 @@ public class Converter
 	 	for(int i = 0; i < infix.length; i++) {
 	 		String current = infix[i];
 	 		
-	 		// parenthesis first
+	 		// parentheses first
 	 		if(current.equals("(")) {
 	 			expressionStack.push(current);
 	 		}
 	 		
 	 		else if(current.equals(")")) {
 	 			
-	 			if(expressionStack.isEmpty()) {
-	 				expressionStack.push(current)
-	 			}
-	 		}
-	 		
-	 		else if(current.equals("/") || current.equals("*")) {
 	 			
 	 		}
 	 		
-	 		// last
+	 		// higher precedence operators
+	 		else if(current.equals("/") || current.equals("*")) {
+	 			
+	 			if(expressionStack.isEmpty() || expressionStack.peek().equals("(") || expressionStack.peek().equals("+") || expressionStack.peek().equals("-")) {
+	 				expressionStack.push(current);
+	 			}
+	 			
+	 			// top of stack is another mult or divide
+	 			else {
+	 				
+	 				while(expressionStack.peek().equals("*") || expressionStack.peek().equals("/")) {
+	 					postfix = postfix + expressionStack.pop() + " ";
+	 				}
+	 				
+	 				expressionStack.push(current);
+	 			}
+	 			
+	 		}
+	 		
+	 		// lower precedence operators
 	 		else if(current.equals("+") || current.equals("-")) {
 	 			
 	 		}
 	 		
-	 		// operand case
+	 		// operands case
 	 		else {
 	 			
 	 		}
