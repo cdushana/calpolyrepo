@@ -1,3 +1,12 @@
+/* Converter implements the methods "infixToPostfix" and "postfixValue"
+ *
+ * @authors Christiana Ushana & Devon Grove
+ * @version Program 1
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 10/9/15
+ */
+
 import java.util.*;
 
 public class Converter
@@ -75,6 +84,12 @@ public class Converter
 	 	return postfix;
 	 }
 
+	 /**
+	 * Method that evaluates the given postfix expression
+	 *
+	 * @param String type value - expression is the user's input
+	 * @return final evaluated value from the calculation
+	 */
 	public static double postfixValue (String expression)
 	{
 		// declare new stack of generic type Double

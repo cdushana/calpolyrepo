@@ -1,3 +1,12 @@
+/* ConTest tests the performance of Converter.java
+ *
+ * @authors Christiana Ushana & Devon Grove
+ * @version Program 1
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 10/9/15
+ */
+
 import java.util.*;
 
 public class ConTest

@@ -1,8 +1,18 @@
+/* StackTest tests the performance of MyStack.java
+ *
+ * @authors Christiana Ushana & Devon Grove
+ * @version Program 1
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 10/9/15
+ */
+
 import java.util.*;
 
 public class StackTest {
 
 	public static void main(String[] args) {
+		// declare stack of type String
 		MyStack<String> stack = new MyStack<String>();
 	
 		System.out.println("Choose one of the following operations:");
@@ -12,16 +22,23 @@ public class StackTest {
 		System.out.println("-- check if the stack is empty (enter the letter e)");
 		System.out.println("-- quit (enter the letter q)");
 		
+		// create new scanner to take in user input
 		Scanner scanner = new Scanner(System.in);
 		
+		// declare boolean to control while loop
 		boolean run = true;
 
 		while(run)
 		{
+			// declare variable to hold user input
 			char result = ' ';
+
+			// declare variable to hold entire line
 			String input = scanner.nextLine();
+
 			if(input.length() > 0)
 			{
+				// result will be first character of input (line)
 				result = input.charAt(0);
 			}
 			
@@ -31,6 +48,7 @@ public class StackTest {
 					if(!scanner.hasNextInt() && !scanner.hasNextFloat())
 					{
 						System.out.println("push: ");
+						// the String variable, to Push, is assigned to the entire line of input
 						String toPush = scanner.nextLine();
 						stack.push(toPush);
 						System.out.println(toPush + " pushed");
@@ -77,6 +95,8 @@ public class StackTest {
 
 				case 'q': 
 					System.out.println("quitting");
+
+					// break out of while loop
 					run = false;
 					break;
 			
