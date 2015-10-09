@@ -21,7 +21,7 @@ public class Converter
 	 		else if(current.equals(")")) {
 	 			
 	 			if(expressionStack.isEmpty()) {
-	 				expressionStack.push(current)
+	 				expressionStack.push(current);
 	 			}
 	 		}
 	 		
@@ -45,10 +45,13 @@ public class Converter
 
 	public static double postfixValue (String expression)
 	{
+		// declare new stack of generic type Double
 		MyStack<Double> stack = new MyStack<Double>();
 
+		// declare new scanner to take in some expression
 		Scanner scanner = new Scanner(expression);
 
+		// declare term operator to hold value
 		String operator = " ";
 
 		while(scanner.hasNext())
@@ -59,6 +62,7 @@ public class Converter
 			}
 			else
 			{
+				// set operator to the following values; excludes extra unnecessary characters
 				operator = scanner.next();
 
 				if(operator.equals("+"))
