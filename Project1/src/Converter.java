@@ -11,6 +11,11 @@ import java.util.*;
 
 public class Converter
 {
+	/**
+	* Converts an infix notation expression to postfix notation
+	* @param String expression - an mathematical expression in infix notation
+	* @return String postfix - the given expression in postfix notation
+	*/
 	public static String infixToPostfix(String expression)
 	{
 	 	// initialze locals
@@ -87,8 +92,8 @@ public class Converter
 	 /**
 	 * Method that evaluates the given postfix expression
 	 *
-	 * @param String type value - expression is the user's input
-	 * @return final evaluated value from the calculation
+	 * @param String expression - the user's input
+	 * @return Double - final evaluated value from the calculation
 	 */
 	public static double postfixValue (String expression)
 	{
