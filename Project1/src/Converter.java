@@ -47,12 +47,26 @@ public class Converter
 	 		// lower precedence operators
 	 		else if(current.equals("+") || current.equals("-")) {
 	 			
+	 			if(expressionStack.isEmpty() || expressionStack.peek().equals("(")) {
+	 				expressionStack.push(current);
+	 			}
+	 			
+	 			else {
+	 				
+	 				while(expressionStack.peek().equals("*") || expressionStack.peek().equals("/") ||  expressionStack.peek().equals("/") ||  expressionStack.peek().equals("/")) {
+	 					postfix = postfix + expressionStack.pop() + " ";
+	 				}
+	 			}
 	 		}
 	 		
 	 		// operands case
 	 		else {
-	 			
+	 			postfix = postfix + current + " ";
 	 		}
+	 	}
+	 	
+	 	while(!expressionStack.isEmpty()) {
+	 		postfix = postfix + expressionStack.pop() + " ";
 	 	}
 		
 	 	return postfix;
