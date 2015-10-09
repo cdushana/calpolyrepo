@@ -19,14 +19,19 @@ public class ConTest
 		// declare string to hold expression input
 		String expression;
 		
+		// declare boolean to control while loop
 		boolean run = true;
 
 		while(run)
 		{
+			// declare variable to hold user input
 			char result = ' ';
+
+			// declare variable to hold entire line
 			String input = scanner.nextLine();
 			if(input.length() > 0)
 			{
+				// result will be first character of input (line)
 				result = input.charAt(0);
 			}
 			
@@ -34,24 +39,32 @@ public class ConTest
 			{
 				case 'i':
 					System.out.println("Enter infix expression:");
+
+					// expression is assigned to the entire line of input
 					expression = scanner.nextLine();
 					System.out.println("the postfix expression is: " + converter.infixToPostFix(expression));
 					break;
 
 				case 'p': 
 					System.out.println("Enter postfix expression:");
+
+					// expression is assigned to the entire line of input
 					expression = scanner.nextLine();
 					System.out.println("the value of the postfix expression is: " + converter.postfixValue(expression));
 					break;
 
 				case 'a': 
 					System.out.println("Enter infix expression:");
+
+					// expression is assigned to the entire line of input
 					expression = scanner.nextLine();
 					System.out.println("the value of the arithmetic expression is: " + converter.infixToPostFix(converter.postfixValue(expression)));
 					break;
 
 				case 'q': 
 					System.out.println("quitting");
+					
+					// break out of while loop
 					run = false;
 					break;
 			
