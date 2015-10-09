@@ -20,9 +20,11 @@ public class Converter
 	 		
 	 		else if(current.equals(")")) {
 	 			
-	 			if(expressionStack.isEmpty()) {
-	 				expressionStack.push(current);
+	 			while(!expressionStack.peek().equals("(")) {
+	 				postfix = postfix + expressionStack.pop() + " ";
 	 			}
+	 			
+	 			expressionStack.pop(); // at this point pop the left parenthesis
 	 		}
 	 		
 	 		// higher precedence operators
