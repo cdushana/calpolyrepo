@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Converter
 {
-	public static String infixToPostfix (String expression)
+	public static String infixToPostfix(String expression)
 	{
 	 	// initialze locals
 	 	String[] infix = expression.split(" ");
@@ -35,7 +35,7 @@ public class Converter
 	 			// top of stack is another mult or divide
 	 			else {
 	 				
-	 				while(expressionStack.peek().equals("*") || expressionStack.peek().equals("/")) {
+	 				while(!expressionStack.isEmpty() && (expressionStack.peek().equals("*") || expressionStack.peek().equals("/"))) {
 	 					postfix = postfix + expressionStack.pop() + " ";
 	 				}
 	 				
@@ -53,7 +53,8 @@ public class Converter
 	 			
 	 			else {
 	 				
-	 				while(expressionStack.peek().equals("*") || expressionStack.peek().equals("/") ||  expressionStack.peek().equals("/") ||  expressionStack.peek().equals("/")) {
+	 				while(!expressionStack.isEmpty() && (expressionStack.peek().equals("*") || expressionStack.peek().equals("/") ||  
+	 						expressionStack.peek().equals("/") ||  expressionStack.peek().equals("/"))) {
 	 					postfix = postfix + expressionStack.pop() + " ";
 	 				}
 	 			}

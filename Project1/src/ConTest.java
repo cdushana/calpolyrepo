@@ -35,7 +35,7 @@ public class ConTest
 				case 'i':
 					System.out.println("Enter infix expression:");
 					expression = scanner.nextLine();
-					System.out.println("the postfix expression is: " + converter.infixToPostFix(expression));
+					System.out.println("the postfix expression is: " + converter.infixToPostfix(expression));
 					break;
 
 				case 'p': 
@@ -47,7 +47,7 @@ public class ConTest
 				case 'a': 
 					System.out.println("Enter infix expression:");
 					expression = scanner.nextLine();
-					System.out.println("the value of the arithmetic expression is: " + converter.infixToPostFix(converter.postfixValue(expression)));
+					System.out.println("the value of the arithmetic expression is: " + converter.postfixValue(converter.infixToPostfix(expression)));
 					break;
 
 				case 'q': 
