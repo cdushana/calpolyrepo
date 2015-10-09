@@ -2,44 +2,46 @@ import java.util.*;
 
 public class Converter
 {
-	//public static String infixToPostfix (String expression)
-	// {
-	// 	// initialze locals
-	// 	String[] infix = expression.split(" ");
-	// 	MyStack<String> stack;
-	// 	String postfix = "";
+	public static String infixToPostfix (String expression)
+	{
+	 	// initialze locals
+	 	String[] infix = expression.split(" ");
+	 	MyStack<String> expressionStack = new MyStack<String>();
+	 	String postfix = "";
 		
-	// 	// check each character and handle with stack or string
-	// 	for(int i = 0; i < infix.length; i++) {
-			
-	// 		// string is an operator
-	// 		if(infix[i].contains("^*/+-()")) {
-	// 			boolean notLarger = true;
-				
-	// 			while(notLarger) {
-					
-	// 				// if hand is lower precedence, pop and check again
-	// 				if() {
-	// 					postfix = postfix + stack.pop();
-	// 				}
-					
-	// 				// if hand is higher precedence, push hand to stack & break
-	// 				else {
-	// 					stack.push(infix[i]);
-	// 					notLarger = false;	
-	// 				}
-	// 			}
-
-	// 		}
-			
-	// 		// we know string is a number
-	// 		else {
-	// 			postfix = postfix + infix[i];
-	// 		}
-	// 	}
+	 	// iterate over each character and handle with stack or string
+	 	for(int i = 0; i < infix.length; i++) {
+	 		String current = infix[i];
+	 		
+	 		// parenthesis first
+	 		if(current.equals("(")) {
+	 			expressionStack.push(current);
+	 		}
+	 		
+	 		else if(current.equals(")")) {
+	 			
+	 			if(expressionStack.isEmpty()) {
+	 				expressionStack.push(current)
+	 			}
+	 		}
+	 		
+	 		else if(current.equals("/") || current.equals("*")) {
+	 			
+	 		}
+	 		
+	 		// last
+	 		else if(current.equals("+") || current.equals("-")) {
+	 			
+	 		}
+	 		
+	 		// operand case
+	 		else {
+	 			
+	 		}
+	 	}
 		
-	// 	return postfix;
-	// }
+	 	return postfix;
+	 }
 
 	public static double postfixValue (String expression)
 	{
