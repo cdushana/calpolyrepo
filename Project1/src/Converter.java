@@ -18,13 +18,18 @@ public class Converter
 	*/
 	public static String infixToPostfix(String expression)
 	{
-	 	// initialze locals
+	 	// create array of operators and operands by splitting input at each space
 	 	String[] infix = expression.split(" ");
+	 	
+	 	// new empty string stack to store operators for later
 	 	MyStack<String> expressionStack = new MyStack<String>();
+	 	
+	 	// initialize empty string varaible to store our output postfix string
 	 	String postfix = "";
 		
 	 	// iterate over each character and handle with stack or string
 	 	for(int i = 0; i < infix.length; i++) {
+	 		// the current operator or operand
 	 		String current = infix[i];
 	 		
 	 		// parentheses first
@@ -35,6 +40,7 @@ public class Converter
 	 		else if(current.equals(")")) {
 	 			
 	 			while(!expressionStack.peek().equals("(")) {
+	 				// update postfix expression with top operator
 	 				postfix = postfix + expressionStack.pop() + " ";
 	 			}
 	 			
@@ -52,6 +58,7 @@ public class Converter
 	 			else {
 	 				
 	 				while(!expressionStack.isEmpty() && (expressionStack.peek().equals("*") || expressionStack.peek().equals("/"))) {
+	 					// update postfix expression with top operator
 	 					postfix = postfix + expressionStack.pop() + " ";
 	 				}
 	 				
@@ -71,18 +78,21 @@ public class Converter
 	 				
 	 				while(!expressionStack.isEmpty() && (expressionStack.peek().equals("*") || expressionStack.peek().equals("/") ||  
 	 						expressionStack.peek().equals("/") ||  expressionStack.peek().equals("/"))) {
+	 					// update postfix expression with top operator
 	 					postfix = postfix + expressionStack.pop() + " ";
 	 				}
 	 			}
 	 		}
 	 		
-	 		// operands case
+	 		// if the value is not an operand (variable name or number as operator), just output
 	 		else {
+	 			// update postfix expression with new value
 	 			postfix = postfix + current + " ";
 	 		}
 	 	}
 	 	
 	 	while(!expressionStack.isEmpty()) {
+	 		// pop any remaining operators off the stack
 	 		postfix = postfix + expressionStack.pop() + " ";
 	 	}
 		
