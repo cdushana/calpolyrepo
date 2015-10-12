@@ -36,12 +36,21 @@ public class AQueue<T>
 
 	public void enqueue(T endValue)
 	{
-		if(count == arr.length - 1) // >=/== arr.length - 1? or just >=/== arr.length?
+		// if array is full, double size
+		if(count == arr.length)
 		{
 			T[] arr2 = (T[]) new Object[arr.length * 2]; // new array doubled in size
-			for(int i = 0; i < arr.length; i++) 
+			
+			int ptr = 0;
+			for(int i = 0; (front + i) < arr.length; i++) 
 			{
-				arr2[i] = arr[i];
+				arr2[i] = arr[front + i];
+				ptr = i;
+			}
+			ptr++;
+			for(int j = 0; j < front; j++) 
+			{
+				arr2[ptr + j] = arr[j];
 			}
 			
 			arr = arr2; // point arr to new array
@@ -49,9 +58,16 @@ public class AQueue<T>
 			end = count - 1; // set end to the end of the array
 		}
 
-		end++;
-		// wrapping around edge of array? 
-		arr[count] = endValue;
+		// wrap array
+		if(end < (arr.length - 1)) {
+			end++;
+		}
+		else {
+			end = 0;
+		}
+
+		count++;
+		arr[end] = endValue;
 	}
 
 	public T dequeue()
