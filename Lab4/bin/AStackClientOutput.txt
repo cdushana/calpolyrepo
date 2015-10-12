@@ -1,6 +1,0 @@
-pcp132273pcs:src JoeMacPro$ java AStackClient
-Please enter a file name:
-AStackTestFile.txt    
-Strings: ff ee dd cc bb aa 
-Floats: 4.0 3.0 2.0 1.0 
-Integers: 7 6 5 4 3 2 1
