@@ -1,3 +1,12 @@
+/* AQueueDriver tests implementation of AQueue.
+ *
+ * @authors Christiana Ushana & Devon Grove
+ * @version Lab 6
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 10/12/15
+ */
+
 import java.util.*;
 
 public class AQueueDriver {
