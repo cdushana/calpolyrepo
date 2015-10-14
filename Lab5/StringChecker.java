@@ -54,6 +54,8 @@ public class StringChecker {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string to be checked:");
+		
 		while(sc.hasNextLine()) {
 			String input = sc.nextLine();
 			
@@ -63,8 +65,9 @@ public class StringChecker {
 			}
 			
 			else {
-				System.out.print("The string is not balanced.");
+				System.out.println("The string is not balanced.");
 			}
+			System.out.println("Enter another string to be checked:");
 		}
 	}
 }
