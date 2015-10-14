@@ -17,24 +17,29 @@ public class StringChecker {
 	 * @return boolean - balanced string or not?
 	 */
 	public static boolean isBalanced(String str) {
-		AStack<String> stack = new AStack<String>(8);
+		AStack<Character> stack = new AStack<Character>(8);
 		
 		// iterate over the string
 		for(int i = 0; i < str.length(); i++) {
-			String index = str.substring(i, i+1);
+			char index = str.charAt(i);
 			
 			// if opening char of interest, push to stack
-			if(index.equals("(") || index.equals("[") || index.equals("{")) {
+			if(index == '(' || index == '[' || index == '{') {
 				stack.push(index);
 			}
 			
 			// if closing char of interest, validate it
-			else if(index.equals(")") || index.equals("]") || index.equals("}")) {
+			else if(index == ')' || index == ']' || index == '}') {
 				if(stack.isEmpty()) {
 					return false;
 				}
 				
-				
+				// sneaky way of converting chars to ascii values to see if they are matching pair
+				int indexASCII = (int)index;
+				int topASCII = (int)stack.pop();
+				if(indexASCII > (topASCII + 2)) {
+					return false;
+				}
 			}
 				
 		}
