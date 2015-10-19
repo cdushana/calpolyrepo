@@ -45,11 +45,12 @@ public class HeapTest {
 					System.out.println("What would you like to add to the heap?");
 					String add = sc.nextLine();
 					heap.insert(add);
+					System.out.println(add + " was added to the heap.");
 					break;
 					
 				case 'd': 
 					try {
-						System.out.println(heap.deleteMin());
+						System.out.println(heap.deleteMin() + " was removed from the head of the heap.");
 					}
 					catch(Exception e) {
 						System.out.println("Invalid operation on an empty heap.");
