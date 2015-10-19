@@ -45,7 +45,17 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * @param T - element to be inserted into array
 	 */
 	public void insert(T element) {
+		// if the array is full, resie it
+		if(size >= collection.length) {
+			T[] holder = (T[]) new Object[collection.length*2]; // new array doubled in size
+			for(int i = 0; i < collection.length; i++) {
+				holder[i] = collection[i];
+			}
+			
+			collection = holder; // point arr to new array
+		}
 		
+		// now do the algorithm
 	}
 	
 	/*
