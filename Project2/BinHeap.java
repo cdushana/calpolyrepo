@@ -45,7 +45,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * @param T - element to be inserted into array
 	 */
 	public void insert(T element) {
-		// if the array is full, resie it
+		// if the array is full, resize it
 		if(size >= collection.length) {
 			T[] holder = (T[]) new Comparable[collection.length*2]; // new array doubled in size
 			for(int i = 0; i < collection.length; i++) {
@@ -55,7 +55,11 @@ public class BinHeap<T extends Comparable<? super T>> {
 			collection = holder; // point to new array
 		}
 		
-		// now do the algorithm	
+		for(int i = 0; i < collection.length; i++) {
+			if(element.compareTo(collection[i]) < 0) {
+				// may need some help with this algorithm
+			}
+		}
 	}
 	
 	/*
@@ -96,6 +100,11 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * @Override
 	 */
 	public String toString() {
+		String strHeap = "";
+		
+		for(int i = 0; i < size; i++) {
+			// need to traverse binary heap
+		}
 		
 		return null;
 	}

@@ -48,7 +48,12 @@ public class HeapTest {
 					break;
 					
 				case 'd': 
-					System.out.println(heap.deleteMin());
+					try {
+						System.out.println(heap.deleteMin());
+					}
+					catch(Exception e) {
+						System.out.println("Invalid operation on an empty heap.");
+					}
 					break;
 					
 				case 'e':
@@ -65,7 +70,7 @@ public class HeapTest {
 					break;
 
 				case 'p':
-					System.out.println(heap.toString());
+					System.out.println(heap);
 					break;
 
 				case 'q':
