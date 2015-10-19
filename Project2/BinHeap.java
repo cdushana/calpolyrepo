@@ -28,7 +28,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * Constructs a BinHeap of size 100 if no parameter provided.
 	 */
 	public BinHeap() {
-		collection = (T[]) new Object[100]; // generic array declaration? | must use casting
+		collection = (T[]) new Comparable[100]; // generic array declaration? | must use casting
 		size = 0;
 	}
 	
@@ -36,7 +36,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * Constructs a BinHeap of specified size provided.
 	 */
 	public BinHeap(int wantSize) {
-		collection = (T[]) new Object[wantSize]; // generic array declaration? | must use casting
+		collection = (T[]) new Comparable[wantSize]; // generic array declaration? | must use casting
 		size = 0;
 	}
 	
@@ -96,6 +96,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * @Override
 	 */
 	public String toString() {
+		
 		return null;
 	}
 }
