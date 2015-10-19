@@ -55,9 +55,26 @@ public class BinHeap<T extends Comparable<? super T>> {
 			collection = holder; // point to new array
 		}
 		
-		for(int i = 0; i < collection.length; i++) {
-			if(element.compareTo(collection[i]) < 0) {
-				// may need some help with this algorithm
+		int hole = ++size; // open up slot in the array
+		int parent = (int) Math.floor(hole / 2);
+		boolean found = false;
+		
+		while(!found) {
+			if(parent == 0) {
+				collection[hole] = element;
+				found = true;
+			}
+			
+			else if(element.compareTo(collection[parent]) >= 0) {
+				collection[hole] = element;
+				found = true;
+			}
+			
+			else {
+				collection[hole] = collection[parent];
+				collection[parent] = null;
+				hole = parent;
+				parent = (int) Math.floor(hole / 2);
 			}
 		}
 	}
@@ -66,10 +83,17 @@ public class BinHeap<T extends Comparable<? super T>> {
 	 * Removes the binary heap root element (min) from the binary heap and returns it.
 	 * @return T - element to be inserted into array
 	 */
-	public T deleteMin() {
-		T root = collection[0];
-		// remove this element from collection
+	public T deleteMin() throws MyException {
+		// verify heap is not empty
+		if(size == 0) {
+			throw new MyException("empty heap");
+		}
+		
+		T root = collection[1];
 		size--;
+		collection[1] = null;
+		int hole = 1;
+
 		
 		return root;
 	}
@@ -102,10 +126,10 @@ public class BinHeap<T extends Comparable<? super T>> {
 	public String toString() {
 		String strHeap = "";
 		
-		for(int i = 0; i < size; i++) {
-			// need to traverse binary heap
+		for(int i = 1; i <= size; i++) {
+			strHeap += (collection[i] + " ");
 		}
 		
-		return null;
+		return strHeap;
 	}
 }
