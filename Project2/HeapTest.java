@@ -48,15 +48,24 @@ public class HeapTest {
 					break;
 					
 				case 'd': 
+					System.out.println(heap.deleteMin());
 					break;
 					
-				case 'e': 		
+				case 'e':
+					if(heap.isEmpty()) {
+						System.out.println("The heap is empty");
+					}
+					else {
+						System.out.println("The heap is not empty");
+					}
 					break;
 					
-				case 's': 
+				case 's':
+					System.out.println(heap.size());
 					break;
 
-				case 'p': 
+				case 'p':
+					System.out.println(heap.toString());
 					break;
 
 				case 'q':
