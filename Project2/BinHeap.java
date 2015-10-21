@@ -81,7 +81,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	
 	/*
 	 * Removes the binary heap root element (min) from the binary heap and returns it.
-	 * @return T - element to be inserted into array
+	 * @return T - element to be deleted from array
 	 */
 	public T deleteMin() throws MyException {
 		// verify heap is not empty
