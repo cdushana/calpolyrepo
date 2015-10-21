@@ -6,16 +6,51 @@ public class TreeWork
 
 	public static <T extends Comparable<? super T>> boolean isHeap (T[] arr, int N)
 	{
-		/*isHeap is a generic method. Given a complete binary tree, this method determines whether 
-		 it is a heap or not. isHeap gets 2 parameters representing the tree: (i) the array where elements are 
-		 stored, and (ii) the number of elements in the tree. If the order property of the heap is satisfied, 
-		 this method returns true (the structure property is already satisfied – the array content represents 
-		 a complete tree); false is returned otherwise.
-		 Precondition: the given tree is not empty (i.e. number of elements is not 0).*/
+		for(int i = 0; i < (N - 1) / 2; i++)
+		{
+			if((i * 2 + 2) < N)
+			{
+				if(arr[i].compareTo(arr[i * 2 + 1]) > 0)
+				{
+					return false;
+				} 
+				else if(arr[i].compareTo(arr[i * 2 + 2]) > 0)
+				{
+					return false;
+				}
+			}
+			else
+			{	
+				if(arr[i].compareTo(arr[i * 2 + 1]) > 0)
+				{
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	public static <T > void printTree (T[] arr, int N)
 	{
+
+		int i = 0;
+	      for(int j = 0; j < Math.log(N)/Math.log(2); j ++)
+	      {
+	         System.out.println();
+
+	         for(i = 0; i < Math.pow(2,j); i++)
+	         {
+	            if(i + (int)Math.pow(2,j) < N)
+	            {
+	               System.out.print(arr[i+(int)Math.pow(2,j)-1]);
+	               System.out.print(" ");
+	            }
+	            else
+	            {
+	               break;
+	            }
+	         }
+	      }
 		/* printTree is a generic method that outputs the given complete binary tree on the screen 
 		(see the output format below). printTree gets two parameters representing the tree: (i) the 
 		array where elements are stored and (ii) the number of elements in the tree.
@@ -32,4 +67,5 @@ public class TreeWork
 		as many elements as in the previous level, except the last level which may not be completely filled.
 		Remember: the number of elements in the tree is given as a parameter (parameter N).*/
 	}
+
 }
