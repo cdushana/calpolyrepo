@@ -1,10 +1,10 @@
-/* Tester class for BinHeap
+/* Tester class for BinHeap.
  *
  * @authors Christiana Ushana & Devon Grove
  * @version Project 2
  * @version CPE103-9/10
  * @version Fall 2015
- * @version 10/18/15
+ * @version 10/21/15
  */
 import java.util.*;
 

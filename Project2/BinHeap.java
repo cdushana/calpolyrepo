@@ -4,12 +4,14 @@
  * @version Project 2
  * @version CPE103-9/10
  * @version Fall 2015
- * @version 10/18/15
+ * @version 10/21/15
  */
+
 import java.util.*;
 
 public class BinHeap<T extends Comparable<? super T>> {
 	
+	// Exception class
 	public static class MyException extends RuntimeException {
 		
 		public MyException() {
@@ -21,7 +23,9 @@ public class BinHeap<T extends Comparable<? super T>> {
 		}
 	}
 	
+	// private vairable to hold all elements
 	private T[] collection;
+	// size of the heap
 	private int size;
 	
 	/*
@@ -81,7 +85,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	
 	/*
 	 * Removes the binary heap root element (min) from the binary heap and returns it.
-	 * @return T - element to be inserted into array
+	 * @return T - element to be deleted from array
 	 */
 	public T deleteMin() throws MyException {
 		// verify heap is not empty
