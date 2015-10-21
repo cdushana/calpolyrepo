@@ -5,6 +5,12 @@ public class Student implements Comparable<Student>
 	private long studentID;
 	private String lastName;
 
+	 public Student(long studentID, String lastName)
+	   {
+	      this.studentID = studentID;
+	      this.lastName = lastName;
+	   }
+
 	public int compareTo(Student other)
 	{
 		if(studentID > other.studentID)
@@ -20,6 +26,6 @@ public class Student implements Comparable<Student>
 
 	public String toString()
 	{
-		return "id: " + studentID + ", name: " + lastName;	
+		return "{ id: " + studentID + ", name: " + lastName + " }";	
 	}
 }
