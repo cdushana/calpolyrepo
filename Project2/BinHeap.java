@@ -81,7 +81,7 @@ public class BinHeap<T extends Comparable<? super T>> {
 	
 	/*
 	 * Removes the binary heap root element (min) from the binary heap and returns it.
-	 * @return T - element to be deleted from array
+	 * @return T - element to be inserted into array
 	 */
 	public T deleteMin() throws MyException {
 		// verify heap is not empty
@@ -90,10 +90,53 @@ public class BinHeap<T extends Comparable<? super T>> {
 		}
 		
 		T root = collection[1];
+		collection[1] = collection[size]; // temporarily move last node to head
+		collection[size] = null; // clear data in old node and decrease size appropriately
 		size--;
-		collection[1] = null;
-		int hole = 1;
-
+		
+		boolean found = false;
+		int index = 1;
+		
+		while(!found) {						
+			T temp1 = collection[2*index];
+			T temp2 = collection[2*index + 1];
+			// if we are at the end, quit
+			if(temp1 == null) {
+				found = true;
+				break;
+			}
+			
+			// if temp1 is smallest child, compare with that
+			if(temp2 == null || temp1.compareTo(temp2) <= 0) {
+				if(collection[index].compareTo(temp1) < 0) {
+					found = true;
+				}
+				
+				else {
+					// swap node at index and smallest child
+					temp2 = collection[index];
+					collection[index] = temp1;
+					index *= 2;
+					collection[index] = temp2;
+				}
+			}
+		
+			// temp2 is smallest child
+			else {
+				if(collection[index].compareTo(temp2) < 0) {
+					found = true;
+				}
+				
+				else {
+					// swap node at index and smallest child
+					temp1 = collection[index];
+					collection[index] = temp2;
+					index *= 2;
+					index++;
+					collection[index] = temp1;
+				}
+			}
+		}
 		
 		return root;
 	}
