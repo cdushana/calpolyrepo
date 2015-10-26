@@ -1,3 +1,5 @@
+RUN1
+
 Choose one of the following operations:
 -- add an element to the list (enter the letter a)
 -- find if a given element is in the list (enter the letter f)
@@ -72,3 +74,20 @@ f
 -1 was not found in the list.
 q
 quitting
+
+****************************************************************************************************************
+RUN2
+
+Choose one of the following operations:
+-- add an element to the list (enter the letter a)
+-- find if a given element is in the list (enter the letter f)
+-- print the list (enter the letter p)
+-- sum the elements of the list (enter the letter s)
+-- quit (enter the letter q)
+f
+1
+1 was not found in the list.
+p
+q
+quitting
+
