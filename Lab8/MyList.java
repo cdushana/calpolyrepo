@@ -13,10 +13,15 @@ public class MyList {
 		}
 		
 		// create a node with element and link
-		public Node(T element, Node link) {
+		public Node(int element, Node link) {
         		this.element = element;
         		this.link = link;
 		}
+	}
+	
+	// constructs a new MyList object
+	public MyList() {
+		head = null;
 	}
 	
 	// adds a new element to list at new head, linking to previous head node
