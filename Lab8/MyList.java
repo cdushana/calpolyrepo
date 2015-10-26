@@ -1,3 +1,12 @@
+/* MyList is a user-created linked list class
+ *
+ * @authors Christiana Ushana & Devon Grove
+ * @version Lab 8
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 10/26/15
+ */
+
 public class MyList {
 	
 	private Node head = new Node();
@@ -69,7 +78,7 @@ public class MyList {
 	// prints each element of the linked list
 	public void print() {
 		if(head.link == null) {
-			System.out.println(head.element + " ");
+			System.out.print(head.element + " ");
 		}
 		
 		else {
@@ -80,7 +89,7 @@ public class MyList {
 	// support method for public print() method
 	private void print(Node current) {
 		if(head.link == null) {
-			System.out.println(head.element + " ");
+			System.out.print(head.element + " ");
 		}
 		
 		else {
