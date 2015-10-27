@@ -28,19 +28,20 @@ public class MyListDriver {
 		while(run)
 		{
 			// get user input
-			String input = scanner.next();
+			String str = scanner.next();
+			char input = str.charAt(0);
 			
 			switch(input)
 			{
-				case "a": 
+				case 'a': 
 					int toAdd = scanner.nextInt();
 					scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
 					list.add(toAdd);
-					System.out.println(toQueue + " added to list");
+					System.out.println(toAdd + " added to list");
 					break;
 					
-				case "f": 
-					int toAdd = scanner.nextInt();
+				case 'f': 
+					int toFind = scanner.nextInt();
 					scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
 					
 					if(list.find(toFind)) {
@@ -51,12 +52,12 @@ public class MyListDriver {
 					}
 					break;
 
-				case "p": 
+				case 'p': 
 					list.print();
 					break;
 
-				case "s":
-					System.out.println(list.sum());
+				case 's':
+					System.out.println("sum is " + list.sum());
 					break;
 
 				case 'q': 
