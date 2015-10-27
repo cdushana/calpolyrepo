@@ -27,41 +27,39 @@ public class MySortedList
 
 	public void add(int item)
 	{
-		// case: list is empty, head needs to be set to a point 
-		// to a new node containing item
-		// item is <= to the value in the first node. Item needs
-		// to be added to the front of list which will cause
-		// head to change
-
+		// if list is empty, head is now a new node with this new element
 		if(isEmpty())
 		{
 			head = new Node(item, null);	// sets head to new Node
 		}
+		
+		// if new element is the smallest, it's node becomes the new head
 		else if(item <= head.element)
 		{
-			Node temp = new Node();
-			temp.element = item;
-			temp.link = head;
-			head = temp;
+			Node newNode = new Node();
+			newNode.element = item;
+			newNode.link = head;
+			head = newNode;
 		}
+		
+		// find where the new element belongs in the list, it gets link of preceding node, preceding node links to it
 		else
 		{
 			Node current = head;
 
-			while(current.next != null && current.next.element < item)
+			while(current.link != null && current.link.element < item)
 			{
-				current = current.next;
+				current = current.link;
 			}
 
-			Node temp = new Node(item, null);
+			Node newNode = new Node(item, null);
 
-			if(current.next != null)
+			if(current.link != null)
 			{
-				temp.next = current.next;
+				newNode.link = current.link;
 			}
 
-			current.next = temp; 		// reset current to new Node
-
+			current.link = newNode;
 		}
 	}
 
@@ -70,7 +68,31 @@ public class MySortedList
 	 * @param int - the element to remove from the list
 	 */
 	public void delete(int item) {
+		
+		Node current = head;
+		
+		// if head is the first match
+		if(!isEmpty() && head.element == item) {
+			head = head.link;
+		}
+		
+		while(current.link != null && current.link.element >= item)
+		{
+			current = current.link;
+			
+			if(current.element == item) {
+				current = current.link;
+			}
+		}
 
+		Node newNode = new Node(item, null);
+
+		if(current.link != null)
+		{
+			newNode.link = current.link;
+		}
+
+		current.link = newNode;
 	}
 
 	/*
@@ -78,7 +100,13 @@ public class MySortedList
 	 * @return int - the largest value of the list
 	 */
 	public int max() {
-
+		Node current = head;
+		
+		while(current.link != null) {
+			current = current.link;
+		}
+		
+		return current.element;
 	}
 
 	/*
@@ -86,14 +114,15 @@ public class MySortedList
 	 * @return int - the smallest value of the list
 	 */
 	public int min() {
-
+		return head.element;
 	}
 
 	/*
 	 * prints out the entire list, separating each element with a space
 	 */
 	public void print() {
-
+		
+		System.out.println("");
 	}
 
 	/*
@@ -101,7 +130,13 @@ public class MySortedList
 	 * @return boolean - is the list empty or not?
 	 */
 	public boolean isEmpty() {
-
+		boolean empty = false;
+		
+		if(head.link == null && head.element == 0) {
+			empty = true;
+		}
+		
+		return empty;
 	}
 
 }

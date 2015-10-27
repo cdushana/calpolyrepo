@@ -50,11 +50,23 @@ public class MyListDriver {
 					break;
 					
 				case 'x': 
-					System.out.println("The minimum of the list was " + list.max());
+					try {
+						System.out.println("The minimum of the list was " + list.max());
+					}
+					
+					catch(Exception e) {
+						System.out.println("Error: list was empty.");
+					}
 					break;
 					
 				case 'm': 
-					System.out.println("The minimum of the list was " + list.min());
+					try {
+						System.out.println("The minimum of the list was " + list.min());
+					}
+			
+					catch(Exception e) {
+						System.out.println("Error: list was empty.");
+					}
 					break;
 
 				case 'p': 
