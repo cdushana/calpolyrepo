@@ -36,6 +36,7 @@ public class MyListDriver {
 			switch(input)
 			{
 				case 'a': 
+					System.out.println("What would you like to add to the list?");
 					int toAdd = scanner.nextInt();
 					scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
 					list.add(toAdd);
@@ -43,10 +44,10 @@ public class MyListDriver {
 					break;
 					
 				case 'd': 
-					int toAdd = scanner.nextInt();
+					System.out.println("What would you like to try to delete from the list?");
+					int toDelete = scanner.nextInt();
 					scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
-					list.add(toAdd);
-					System.out.println(toAdd + " added to list");
+					list.delete(toDelete);
 					break;
 					
 				case 'x': 
