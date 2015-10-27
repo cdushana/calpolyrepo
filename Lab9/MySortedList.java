@@ -5,6 +5,12 @@ public class MySortedList
 		int element;
 		Node link;
 
+		public Node()
+		{
+			this.element = 0;
+			this.link = null;
+		}
+		
 		public Node(int element, Node link)
 		{
 			this.element = element;
@@ -16,7 +22,7 @@ public class MySortedList
 
 	public MySortedList()
 	{
-		head = null;
+		head = new Node();
 	}
 
 	public void add(int item)
@@ -59,28 +65,42 @@ public class MySortedList
 		}
 	}
 
-	public void delete(int item)
-	{
+	/*
+	 * deletes the first occurrence of element provided from the list if it exists
+	 * @param int - the element to remove from the list
+	 */
+	public void delete(int item) {
 
 	}
 
-	public int max()
-	{
+	/*
+	 * finds the maximum element of the list
+	 * @return int - the largest value of the list
+	 */
+	public int max() {
 
 	}
 
-	public int min()
-	{
+	/*
+	 * finds the minimum element of the list
+	 * @return int - the smallest value of the list
+	 */
+	public int min() {
 
 	}
 
-	public void print()
-	{
+	/*
+	 * prints out the entire list, separating each element with a space
+	 */
+	public void print() {
 
 	}
 
-	public isEmpty()
-	{
+	/*
+	 * checks whether or not the list is empty
+	 * @return boolean - is the list empty or not?
+	 */
+	public boolean isEmpty() {
 
 	}
 
