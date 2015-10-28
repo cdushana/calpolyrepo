@@ -17,6 +17,7 @@ Error: list was empty.
 e
 List is empty
 p
+
 a
 What would you like to add to the list?
 3
