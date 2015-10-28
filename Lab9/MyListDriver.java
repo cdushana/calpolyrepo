@@ -48,25 +48,26 @@ public class MyListDriver {
 					int toDelete = scanner.nextInt();
 					scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
 					list.delete(toDelete);
+					System.out.println("The first " + toDelete + " from the list was deleted if present.");
 					break;
 					
 				case 'x': 
-					try {
-						System.out.println("The minimum of the list was " + list.max());
+					if (list.isEmpty()) {
+						System.out.println("Error: list was empty.");
 					}
 					
-					catch(Exception e) {
-						System.out.println("Error: list was empty.");
+					else {
+						System.out.println("The maximum of the list was " + list.max());
 					}
 					break;
 					
 				case 'm': 
-					try {
-						System.out.println("The minimum of the list was " + list.min());
-					}
-			
-					catch(Exception e) {
+					if (list.isEmpty()) {
 						System.out.println("Error: list was empty.");
+					}
+					
+					else {
+						System.out.println("The minimum of the list was " + list.min());
 					}
 					break;
 
