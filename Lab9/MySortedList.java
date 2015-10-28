@@ -76,23 +76,17 @@ public class MySortedList
 			head = head.link;
 		}
 		
-		while(current.link != null && current.link.element >= item)
+		// iterate through until a match is found or search item becomes bigger than elements
+		while(current.link != null && current.link.element <= item)
 		{
-			current = current.link;
 			
-			if(current.element == item) {
-				current = current.link;
+			if(current.link.element == item) {
+				current.link = current.link.link;
+				break;
 			}
+			
+			current = current.link;
 		}
-
-		Node newNode = new Node(item, null);
-
-		if(current.link != null)
-		{
-			newNode.link = current.link;
-		}
-
-		current.link = newNode;
 	}
 
 	/*
@@ -121,16 +115,16 @@ public class MySortedList
 	 * prints out the entire list, separating each element with a space
 	 */
 	public void print() {
-		if(!isEmpty() {
+		if(!isEmpty()) {
 			Node current = head;
-		
-			while(current.link != null) {
-				System.out.println(current.element + " ");
-				current = current.link;
-			}
+			System.out.print(current.element + " ");
 			
-			System.out.println("");
+			while(current.link != null) {
+				current = current.link;
+				System.out.print(current.element + " ");
+			}
 		}
+		System.out.println();
 	}
 
 	/*
@@ -140,7 +134,7 @@ public class MySortedList
 	public boolean isEmpty() {
 		boolean empty = false;
 		
-		if(head.link == null && head.element == 0) {
+		if(head == null || (head.link == null && head.element == 0)) {
 			empty = true;
 		}
 		
