@@ -121,8 +121,16 @@ public class MySortedList
 	 * prints out the entire list, separating each element with a space
 	 */
 	public void print() {
+		if(!isEmpty() {
+			Node current = head;
 		
-		System.out.println("");
+			while(current.link != null) {
+				System.out.println(current.element + " ");
+				current = current.link;
+			}
+			
+			System.out.println("");
+		}
 	}
 
 	/*
