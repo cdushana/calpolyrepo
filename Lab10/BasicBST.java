@@ -10,62 +10,134 @@ public class BasicBST
 
 	private BSTNode root;
 
-	public BSTNode()
+	public BasicBST()
 	{
 		root = null;
 	}
 
 	public void insert(int value)
 	{
-		insert(value, root);
+		root = insert(value, root);
 	}
 	
-	protected void insert(int value, BSTNode root)
+	protected BSTNode insert(int value, BSTNode node)
 	{
-		if(root == null)
+		if(node == null)
 		{
-			root.element = value;
+			node = new BSTNode();
+			node.element = value;
 		}
-		else if()
+		else
+		{
+			if(node.element > value)
+			{
+				node.left = insert(value, node.left);
+			}
+			else if(node.element < value)
+			{
+				node.right = insert(value, node.right);
+			}
+		}
+		return node;
 	}
 
 	public int countOdds()
 	{
-
+		return countOdds(root);
 	}
 	
-	protected int countOdds()
+	protected int countOdds(BSTNode node)
 	{
-		
+		if(node == null)
+		{
+			return 0;
+		}
+
+		if(node.element % 2 != 0)
+		{
+			return countOdds(node.left) + countOdds(node.right) + 1;
+		}
+
+		return countOdds(node.left) + countOdds(node.right);
 	}
 	
 	public int height()
 	{
-
+		return height(root);
 	}
 	
-	protected int height()
+	protected int height(BSTNode node)
 	{
-		
+		if(node == null)
+		{
+			return -1;
+		}
+
+		int leftHeight = height(node.left);
+		int rightHeight = height(node.right);
+
+		if(leftHeight > rightHeight)
+		{
+			return leftHeight + 1;
+		}
+		else
+		{
+			return rightHeight + 1;
+		}
 	}
 
 	public int countLeaves()
 	{
-
+		return countLeaves(root);
 	}
 	
-	protected int countLeaves()
+	protected int countLeaves(BSTNode node)
 	{
+		int leaves = 0;
+
+		if(node == null)	// return 0 if there are no leaves
+		{
+			leaves = 0;
+		}
 		
+		if(node.left == null && node.right == null)		// return 1 if there is only one node
+		{
+			leaves = 1;
+		}
+		else											
+		{
+			leaves = countLeaves(node.left) + countLeaves(node.right);		// recursively add together all nodes
+		}
+
+		return leaves;
 	}
 
 	public int countOneChildParents()
 	{
-
+		return countOneChildParents(root);
 	}
 	
-	protected int countOneChildParents()
+	protected int countOneChildParents(BSTNode node)
 	{
-		
+		if(node == null)
+		{
+			return 0;
+		}
+		else if(node.left != null && node.right != null)
+		{
+			return countOneChildParents(node.left) + countOneChildParents(node.right);
+		}
+		else if(node.left == null && node.right == null)
+		{
+			return 0;
+		}
+		else if(node.left != null)
+		{
+			return 1 + countOneChildParents(node.left);
+		}
+		else
+		{
+			return 1 + countOneChildParents(node.right);
+		}
 	}
 }
