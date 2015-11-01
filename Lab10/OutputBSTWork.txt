@@ -1,0 +1,136 @@
+=============== RUN 1 =============== 
+Christiana-Ushanas-MacBook-Pro:Lab10 JoeMacPro$ java BSTWork
+Choose one of the following operations:
+-- add an element to the tree (enter the letter a)
+-- find the number of odds values in the tree (enter the letter o)
+-- find the height of the tree (enter the letter h)
+-- find the number of leaves in the tree (enter the letter l)
+-- find the number of one-child nodes in the tree (enter the letter c)
+-- quit (enter the letter q)
+a
+What would you like to add to the tree?
+20
+20 added to tree
+a
+What would you like to add to the tree?
+40
+40 added to tree
+a
+What would you like to add to the tree?
+60
+60 added to tree
+a
+What would you like to add to the tree?
+80
+80 added to tree
+o
+The number of odd values in the tree is 0
+h
+The height of the tree is 3
+l
+The number of leaves in the tree is 1
+c
+The number of one-child nodes in the tree is 3
+a
+What would you like to add to the tree?
+31
+31 added to tree
+a
+What would you like to add to the tree?
+51
+51 added to tree
+a
+What would you like to add to the tree?
+71
+71 added to tree
+o
+The number of odd values in the tree is 3
+h
+The height of the tree is 4
+l
+The number of leaves in the tree is 3
+c
+The number of one-child nodes in the tree is 2
+a
+What would you like to add to the tree?
+10
+10 added to tree
+a
+What would you like to add to the tree?
+5
+5 added to tree
+a
+What would you like to add to the tree?
+3
+3 added to tree
+o
+The number of odd values in the tree is 5
+h
+The height of the tree is 4
+l
+The number of leaves in the tree is 4
+c
+The number of one-child nodes in the tree is 3
+a
+What would you like to add to the tree?
+8
+8 added to tree
+a
+What would you like to add to the tree?
+75
+75 added to tree
+a
+What would you like to add to the tree?
+6
+6 added to tree
+o
+The number of odd values in the tree is 6
+h
+The height of the tree is 5
+l
+The number of leaves in the tree is 5
+c
+The number of one-child nodes in the tree is 4
+a
+What would you like to add to the tree?
+65
+65 added to tree
+a
+What would you like to add to the tree?
+85
+85 added to tree
+a
+What would you like to add to the tree?
+11
+11 added to tree
+a
+What would you like to add to the tree?
+9
+9 added to tree
+o
+The number of odd values in the tree is 10
+h
+The height of the tree is 5
+l
+The number of leaves in the tree is 9
+c
+The number of one-child nodes in the tree is 0
+
+
+=============== RUN 2 =============== 
+Christiana-Ushanas-MacBook-Pro:Lab10 JoeMacPro$ java BSTWork
+Choose one of the following operations:
+-- add an element to the tree (enter the letter a)
+-- find the number of odds values in the tree (enter the letter o)
+-- find the height of the tree (enter the letter h)
+-- find the number of leaves in the tree (enter the letter l)
+-- find the number of one-child nodes in the tree (enter the letter c)
+-- quit (enter the letter q)
+o
+The number of odd values in the tree is 0
+h
+The height of the tree is -1
+l
+The number of leaves in the tree is 0
+c
+The number of one-child nodes in the tree is 0

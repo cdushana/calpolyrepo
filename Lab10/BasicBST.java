@@ -1,3 +1,12 @@
+/* BasicBST creates a Basic Binary Tree with different methods.
+ *
+ * @authors Christiana Ushana & Devon Grove
+ * @version Lab 10
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 11/1/15
+ */
+
 import java.util.*;
 
 public class BasicBST
@@ -99,8 +108,7 @@ public class BasicBST
 		{
 			leaves = 0;
 		}
-		
-		if(node.left == null && node.right == null)		// return 1 if there is only one node
+		else if(node.left == null && node.right == null)		// return 1 if there is only one node
 		{
 			leaves = 1;
 		}
