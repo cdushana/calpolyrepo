@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class LList<T>
 {
 	private Node head;
@@ -36,7 +38,7 @@ public class LList<T>
 			
 			cursor = cursor.link;
 			
-			return cursor;
+			return cursor.element;
 		}
 
 		// this method is not supported
@@ -60,7 +62,7 @@ public class LList<T>
 		}
 		
 		else {
-			current = head;
+			Node current = head;
 			while(current.link != null) {
 				current = current.link;
 			}
