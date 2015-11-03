@@ -9,6 +9,7 @@ public class SeparateAndMerge
 
 		Scanner scanner = new Scanner(System.in);
 
+		System.out.println("Input some integers or floats: ");
 		while(!scanner.hasNext("q"))
 		{
 			if(scanner.hasNextInt())
@@ -24,8 +25,22 @@ public class SeparateAndMerge
 				scanner.next();
 			}
 		}
+		scanner.close();
 
 		System.out.println("Inputted values: ");
-		
+		Iterator intIter = listInt.iterator();
+		Iterator floatIter = listFloat.iterator();
+
+        for(int i = 0; intIter.hasNext() || floatIter.hasNext(); i++)
+        {
+        	if(intIter.hasNext() &&  i % 2 == 0)
+        	{
+        		System.out.println(intIter.next() + " ");
+        	}
+        	else if(floatIter.hasNext() &&  (i + 1) % 2 == 0)
+        	{
+        		System.out.println(floatIter.next() + " ");
+        	}
+        }
 	}
 }

@@ -19,7 +19,7 @@ public class LList<T>
 		}
 	}
 
-	private class Iter {
+	private class Iter implements Iterator {
 		public Node cursor;
 
 		public Iter() {
@@ -36,9 +36,9 @@ public class LList<T>
 				throw new NoSuchElementException();
 			}
 			
-			cursor = cursor.link;
-			
-			return cursor.element;
+			T item = cursor.element;
+            cursor = cursor.link;
+            return item;
 		}
 
 		// this method is not supported
@@ -51,13 +51,13 @@ public class LList<T>
 		head = null;
 	}
 
-	public void iterator() {
-		new Iter();
+	public Iter iterator() {
+		return new Iter();
 	}
 
 	// add to end of list, should NOT be using iterator here 
 	public void add(T item) {
-		if(head.element == null) {
+		if(head == null) {
 			head = new Node(item, null);
 		}
 		
