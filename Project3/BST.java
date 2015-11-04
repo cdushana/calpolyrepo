@@ -30,7 +30,7 @@ public class BST<T extends Comparable<? super T>>
 
 	private class PreITer
 	{
-
+		
 	}
 
 	private class InIter
@@ -60,7 +60,11 @@ public class BST<T extends Comparable<? super T>>
 
 	public void insert(T item)
 	{
-
+		if(root == null) {
+			root = new BSTNode(item, null, null);
+		}
+		
+		// need to iterate over tree
 	}
 
 	public void delete(T item)
@@ -73,29 +77,39 @@ public class BST<T extends Comparable<? super T>>
 
 	}
 
+	// Checks root to see if tree is empty or not
 	public boolean isEmpty()
 	{
 		return (root == null);
 	}
 
+	// makes the tree empty by setting root to null
 	public void makeEmpty()
 	{
-
+		root = null;
 	}
 
 	public int size()
 	{
-
+		if(root == null) {
+			return 0;
+		}
+		
+		
 	}
 
 	public T findMinimum()
 	{
-
+		if(isEmpty()) {
+			throw new MyException();
+		}
 	}
 
 	public T findMaximum()
 	{
-
+		if(isEmpty()) {
+			throw new MyException();
+		}
 	}
 
 	public Iterator<T> iteratorPre()
@@ -122,8 +136,4 @@ public class BST<T extends Comparable<? super T>>
 	{
 
 	}
-
-
-
-
 }
