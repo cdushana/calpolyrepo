@@ -100,17 +100,17 @@ public class BST<T extends Comparable<? super T>>
 
 	public Iterator<T> iteratorPre()
 	{
-
+		return new PreIter();
 	}
 
 	public Iterator<T> iteratorIn()
 	{
-
+		return new InIter();
 	}
 
 	public Iterator<T> iteratorLevel()
 	{
-
+		return new LevelIter();
 	}
 
 	public void printTree()
