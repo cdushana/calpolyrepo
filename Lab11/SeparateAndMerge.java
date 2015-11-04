@@ -31,16 +31,17 @@ public class SeparateAndMerge
 		Iterator intIter = listInt.iterator();
 		Iterator floatIter = listFloat.iterator();
 
-        for(int i = 0; intIter.hasNext() || floatIter.hasNext(); i++)
+        for(int i = 0; intIter.hasNext() || floatIter.hasNext(); i++) // continue until node == null
         {
-        	if(intIter.hasNext() &&  i % 2 == 0)
+        	if(intIter.hasNext() &&  i % 2 == 0)		// all even values
         	{
-        		System.out.println(intIter.next() + " ");
+        		System.out.print(intIter.next() + " ");
         	}
-        	else if(floatIter.hasNext() &&  (i + 1) % 2 == 0)
+        	else if(floatIter.hasNext() &&  (i + 1) % 2 == 0)	// all odd values
         	{
-        		System.out.println(floatIter.next() + " ");
+        		System.out.print(floatIter.next() + " ");
         	}
         }
+        System.out.println(); 
 	}
 }

@@ -27,7 +27,7 @@ public class LList<T>
 		}
 
 		public boolean hasNext() {
-			return (cursor.link != null);
+			return (cursor != null);
 		}
 
 		public T next() {
