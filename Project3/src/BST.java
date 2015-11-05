@@ -9,22 +9,18 @@
 
 import java.util.Iterator;
 
-public class BST<T extends Comparable<? super T>>
-{
-	private class BSTNode
-	{
+public class BST<T extends Comparable<? super T>> {
+	private class BSTNode {
 		T element;
 		BSTNode left, right;
 
-		public BSTNode()
-		{
+		public BSTNode() {
 			element = null;
 			left = null;
 			right = null;
 		}
 
-		public BSTNode(T element, BSTNode left, BSTNode right)
-		{
+		public BSTNode(T element, BSTNode left, BSTNode right) {
 			this.element = element;
 			this.left = left;
 			this.right = right;
@@ -36,8 +32,7 @@ public class BST<T extends Comparable<? super T>>
 	/*
 	 * Class for a pre-order iterator
 	 */
-	private class PreIter
-	{
+	private class PreIter {
 		private BSTNode current;
 		
 		public PreIter() {
@@ -105,8 +100,7 @@ public class BST<T extends Comparable<? super T>>
 		}
 	}
 
-	public static class MyException extends RuntimeException 
-	{
+	public static class MyException extends RuntimeException  {
 		public MyException() {}
 		
 		public MyException(String message) 
@@ -115,13 +109,11 @@ public class BST<T extends Comparable<? super T>>
 		}
 	}
 
-	public BST()
-	{
+	public BST() {
 		root = null;
 	}
 
-	public void insert(T item)
-	{
+	public void insert(T item) {
 		// if tree is empty, make new item the root node
 		if(isEmpty()) {
 			root = new BSTNode(item, null, null);
@@ -147,16 +139,14 @@ public class BST<T extends Comparable<? super T>>
 	/*
 	 * 
 	 */
-	public void delete(T item)
-	{
+	public void delete(T item) {
 
 	}
 
 	/*
 	 * 
 	 */
-	public boolean find(T item)
-	{
+	public boolean find(T item) {
 		return false;
 
 	}
@@ -166,8 +156,7 @@ public class BST<T extends Comparable<? super T>>
 	 * Checks root to see if tree is empty or not
 	 * @return boolean - empty status of the tree
 	 */
-	public boolean isEmpty()
-	{
+	public boolean isEmpty() {
 		return (root == null);
 	}
 
