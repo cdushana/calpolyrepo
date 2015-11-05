@@ -174,8 +174,7 @@ private BSTNode current;
 	 * Gets the size of the tree
 	 * @return int - the number of nodes in the tree.
 	 */
-	public int size()
-	{
+	public int size() {
 		if(root == null) {
 			return 0;
 		}
@@ -184,47 +183,64 @@ private BSTNode current;
 	}
 
 	/*
-	 * Finds the smallest element in the tree
+	 * Finds the smallest element in the tree by visiting leftmost
 	 * @return T - the smallest element
 	 */
-	public T findMinimum()
-	{
+	public T findMinimum() {
 		if(isEmpty()) {
 			throw new MyException();
 		}
+		
+		return findMinimum(root);
 	}
 
+	// support method for above
+	private T findMinimum(BSTNode current) {
+		if(current.left == null) {
+			return current.element;
+		}
+		return findMinimum(current.left);
+	}
+	
 	/*
-	 * Finds the largest element in the tree
+	 * Finds the largest element in the tree by visiting rightmost
 	 * @return T - the largest element
 	 */
-	public T findMaximum()
-	{
+	public T findMaximum() {
 		if(isEmpty()) {
 			throw new MyException();
 		}
+		
+		return findMaximum(root);
 	}
 
-	public Iterator<T> iteratorPre()
-	{
+	// support method for above
+	private T findMaximum(BSTNode current) {
+		if(current.right == null) {
+			return current.element;
+		}
+		return findMinimum(current.right);
+	}
+	
+	// create pre iterator
+	public Iterator<T> iteratorPre() {
 		return new PreIter();
 	}
 
-	public Iterator<T> iteratorIn()
-	{
+	// create in iterator
+	public Iterator<T> iteratorIn() {
 		return new InIter();
 	}
 
-	public Iterator<T> iteratorLevel()
-	{
+	// create level iterator
+	public Iterator<T> iteratorLevel() {
 		return new LevelIter();
 	}
 
 	/*
 	 * Prints all the elements of the tree
 	 */
-	public void printTree()
-	{
+	public void printTree() {
 		
 	}
 
@@ -232,8 +248,7 @@ private BSTNode current;
 	 * Outputs the tree into a processable string format
 	 * @return String - tree formatted as a string
 	 */
-	public String toString()
-	{
+	public String toString() {
 
 	}
 }
