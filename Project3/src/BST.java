@@ -7,7 +7,7 @@
  * @version 11/6/15
  */
 
-import java.util.*;
+import java.util.Iterator;
 
 public class BST<T extends Comparable<? super T>>
 {
@@ -33,11 +33,14 @@ public class BST<T extends Comparable<? super T>>
 
 	private BSTNode root;
 
-	private class PreITer
+	/*
+	 * Class for a pre-order iterator
+	 */
+	private class PreIter
 	{
 		private BSTNode current;
 		
-		public PreITer() {
+		public PreIter() {
 			current = root;
 		}
 		
@@ -54,11 +57,14 @@ public class BST<T extends Comparable<? super T>>
 		}
 	}
 
-	private class InIter
-	{
-private BSTNode current;
+	/*
+	 * Class for an in-order iterator
+	 */
+	private class InIter {
 		
-		public PreITer() {
+		private BSTNode current;
+		
+		public InIter() {
 			current = root;
 		}
 		
@@ -75,11 +81,14 @@ private BSTNode current;
 		}
 	}
 
-	private class LevelIter
-	{
-private BSTNode current;
+	/*
+	 * Class for a level-order iterator
+	 */
+	private class LevelIter {
+
+		private BSTNode current;
 		
-		public PreITer() {
+		public LevelIter() {
 			current = root;
 		}
 		
@@ -175,11 +184,18 @@ private BSTNode current;
 	 * @return int - the number of nodes in the tree.
 	 */
 	public int size() {
-		if(root == null) {
+		return size(root);
+	}
+	
+	// recursive support method for above
+	private int size(BSTNode current) {
+		if(current == null) {
 			return 0;
 		}
 		
-		
+		else {
+			return (1 + size(current.left) + size(current.right));
+		}
 	}
 
 	/*
@@ -194,7 +210,7 @@ private BSTNode current;
 		return findMinimum(root);
 	}
 
-	// support method for above
+	// recursive support method for above
 	private T findMinimum(BSTNode current) {
 		if(current.left == null) {
 			return current.element;
@@ -214,7 +230,7 @@ private BSTNode current;
 		return findMaximum(root);
 	}
 
-	// support method for above
+	// recursive support method for above
 	private T findMaximum(BSTNode current) {
 		if(current.right == null) {
 			return current.element;
@@ -224,7 +240,7 @@ private BSTNode current;
 	
 	// create pre iterator
 	public Iterator<T> iteratorPre() {
-		return new PreIter();
+		return new PreITer();
 	}
 
 	// create in iterator
