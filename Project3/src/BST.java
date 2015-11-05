@@ -35,17 +35,65 @@ public class BST<T extends Comparable<? super T>>
 
 	private class PreITer
 	{
+		private BSTNode current;
 		
+		public PreITer() {
+			current = root;
+		}
+		
+		public boolean hasNext() {
+			return (current.left != null);
+		}
+		
+		public void next() {
+			
+		}
+		
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	private class InIter
 	{
-
+private BSTNode current;
+		
+		public PreITer() {
+			current = root;
+		}
+		
+		public boolean hasNext() {
+			return (current.left != null);
+		}
+		
+		public void next() {
+			
+		}
+		
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	private class LevelIter
 	{
-
+private BSTNode current;
+		
+		public PreITer() {
+			current = root;
+		}
+		
+		public boolean hasNext() {
+			return (current.left != null);
+		}
+		
+		public void next() {
+			
+		}
+		
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	public static class MyException extends RuntimeException 
@@ -65,11 +113,25 @@ public class BST<T extends Comparable<? super T>>
 
 	public void insert(T item)
 	{
-		if(root == null) {
+		// if tree is empty, make new item the root node
+		if(isEmpty()) {
 			root = new BSTNode(item, null, null);
 		}
 		
-		// need to iterate over tree
+		// if new item is smaller, go to the left
+		else if(item.compareTo()) {
+			
+		}
+		
+		// if new item is larger, go to the right
+		else if() {
+			
+		}
+		
+		// otherwise we have duplicate and throw exception
+		else {
+			
+		}
 	}
 
 
@@ -93,18 +155,25 @@ public class BST<T extends Comparable<? super T>>
 
 	/*
 	 * Checks root to see if tree is empty or not
+	 * @return boolean - empty status of the tree
 	 */
 	public boolean isEmpty()
 	{
 		return (root == null);
 	}
 
-	// makes the tree empty by setting root to null
+	/*
+	 * Makes tree empty by setting root to null
+	 */
 	public void makeEmpty()
 	{
 		root = null;
 	}
 
+	/*
+	 * Gets the size of the tree
+	 * @return int - the number of nodes in the tree.
+	 */
 	public int size()
 	{
 		if(root == null) {
@@ -114,6 +183,10 @@ public class BST<T extends Comparable<? super T>>
 		
 	}
 
+	/*
+	 * Finds the smallest element in the tree
+	 * @return T - the smallest element
+	 */
 	public T findMinimum()
 	{
 		if(isEmpty()) {
@@ -121,6 +194,10 @@ public class BST<T extends Comparable<? super T>>
 		}
 	}
 
+	/*
+	 * Finds the largest element in the tree
+	 * @return T - the largest element
+	 */
 	public T findMaximum()
 	{
 		if(isEmpty()) {
@@ -143,11 +220,18 @@ public class BST<T extends Comparable<? super T>>
 		return new LevelIter();
 	}
 
+	/*
+	 * Prints all the elements of the tree
+	 */
 	public void printTree()
 	{
-
+		
 	}
 
+	/*
+	 * Outputs the tree into a processable string format
+	 * @return String - tree formatted as a string
+	 */
 	public String toString()
 	{
 
