@@ -8,6 +8,7 @@
  */
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class BST<T extends Comparable<? super T>> {
 	private class BSTNode {
@@ -33,20 +34,44 @@ public class BST<T extends Comparable<? super T>> {
 	 * Class for a pre-order iterator
 	 */
 	private class PreIter {
-		private BSTNode current;
+		private MyStack<BSTNode> stack = new MyStack<BSTNode>();
 		
 		public PreIter() {
-			current = root;
+			
+			// if the BST has nodes, push the root to iterator
+			if(!isEmpty()) {
+				stack.push(root);
+			}
 		}
 		
 		public boolean hasNext() {
-			return (current.left != null);
-		}
-		
-		public void next() {
+			BSTNode current = stack.peek();
 			
+			if(current.left == null && current.right == null) {
+				return false;
+			}
+			
+			return true;
 		}
 		
+		public T next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException();
+			}
+			
+			BSTNode current = stack.pop();
+			
+			if(current.right != null) {
+				stack.push(current);
+			}
+			if(current.left != null) {
+				stack.push(current);
+			}
+			
+			return current.element;
+		}
+		
+		// not allowed
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
