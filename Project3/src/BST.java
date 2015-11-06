@@ -260,9 +260,10 @@ public class BST<T extends Comparable<? super T>> {
 					current = current.right;
 				}
 				
-				// algorithm to handle if two children exist
+				// get smallest of right subtree, then delete this node
 				else {
 					current.element = findMinimum(current.right);
+					delete(current.element, current.right);
 				}
 			}
 			
