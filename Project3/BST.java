@@ -203,7 +203,7 @@ public class BST<T extends Comparable<? super T>> {
 	 * @param T - element to be inserted
 	 */
 	public void insert(T item) {
-		insert(item, root);
+		root = insert(item, root);
 	}
 	
 	// recusive support method for above
@@ -215,12 +215,12 @@ public class BST<T extends Comparable<? super T>> {
 		
 		// if new item is smaller, go to the left
 		else if(item.compareTo(current.element) < 0) {
-			insert(item, current.left);
+			current.left = insert(item, current.left);
 		}
 	
 		// if new item is larger, go to the right
 		else if(item.compareTo(current.element) > 0) {
-			insert(item, current.right);
+			current.right = insert(item, current.right);
 		}
 		
 		// otherwise we have duplicate and throw exception
@@ -428,10 +428,7 @@ public class BST<T extends Comparable<? super T>> {
 	// recursive support method for above
 	private String toString(String str, BSTNode current) {
 		if(current != null) {
-			str += current.element;
-			str += " ";
-			str += toString(str, current.left);
-			str += toString(str, current.right);
+			str = current.element + " " + toString(str, current.left) + toString(str, current.right);
 		}
 		
 		return str;

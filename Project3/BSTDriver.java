@@ -47,11 +47,13 @@ public class BSTDriver {
 						System.out.println("What number would you like to add to the tree?");
 						int newNum = sc.nextInt();
 						tree.insert(newNum);
+						System.out.println(newNum + " was added to the tree.");
 						break;
 					case 'd': 
 						System.out.println("What number would you like to try to delete from the tree?");
 						int deleteNum = sc.nextInt();
 						tree.delete(deleteNum);
+						System.out.println(deleteNum + " was deleted from the tree if it existed.");
 						break;
 					case 'f':
 						System.out.println("What would you like to search for?");
@@ -87,7 +89,7 @@ public class BSTDriver {
 						tree.printTree();
 						break;
 					case 'o': 
-						System.out.println(tree);
+						System.out.println(tree.toString());
 						break;
 					case 'q': 
 						System.out.println("quitting");
