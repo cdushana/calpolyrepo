@@ -214,12 +214,12 @@ public class BST<T extends Comparable<? super T>> {
 		}
 		
 		// if new item is smaller, go to the left
-		else if(item.compareTo(current.element) < 1) {
+		else if(item.compareTo(current.element) < 0) {
 			insert(item, current.left);
 		}
 	
 		// if new item is larger, go to the right
-		else if(item.compareTo(current.element) > 1) {
+		else if(item.compareTo(current.element) > 0) {
 			insert(item, current.right);
 		}
 		
@@ -248,11 +248,35 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/*
-	 * 
+	 * Searches the tree for the given item and returns true if it was found
+	 * @param T - item to search for
+	 * @return bool - whether the item was found or not
 	 */
 	public boolean find(T item) {
-		return false;
-
+		return find(item, root);
+	}
+	
+	// recursive support method for above
+	private boolean find(T item, BSTNode current) {
+		// if we are still looking and current node is null, wasn't found
+		if(current == null) {
+			return false;
+		}
+		
+		// if element is equal, we are found
+		else if(item.compareTo(current.element) == 0) {
+			return true;
+		}
+		
+		// if element is smaller than current node, go left
+		else if(item.compareTo(current.element) < 0) {
+			return find(item, current.left);
+		}
+		
+		// element is bigger than current node, go right
+		else {
+			return find(item, current.right);
+		}
 	}
 
 

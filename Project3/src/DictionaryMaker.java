@@ -11,6 +11,7 @@
 
 import java.io.FileInputStream;
 import java.io.PrintStream;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class DictionaryMaker {
@@ -35,21 +36,29 @@ public class DictionaryMaker {
 			FileInputStream inFile = new FileInputStream(inFilepath);
 			PrintStream outFile = new PrintStream(outFilepath);
 			Scanner fileScanner = new Scanner(inFile);
+			// relevant stuff to try ends here
+			
+			// get next word
+			String word = "";
+			
+			while(fileScanner.hasNextLine()) {
+				word = fileScanner.next();
+				
+				// if word not found, insert it into the tree
+				if(!bst.find(word)) {
+					bst.insert(word);
+				}
+			}
+			
+			// create iterator, then iterate over tree while there is a next element
+			Iterator<String> itr = bst.iteratorIn();
+			while(itr.hasNext()) {
+				System.out.println(itr.next());
+			}
 		}
+		
 		catch(Exception e) {
 			System.out.println("One of the filepaths could not be resolved to a file.");
-		}
-		
-		// get next word
-		String word = "";
-		
-		while(fileScanner.hasNextLine()) {
-			word = fileScanner.next();
-			
-			// if word not found, insert it into the tree
-			if(!bst.find(word)) {
-				bst.insert(word);
-			}
 		}
 	}	
 }
