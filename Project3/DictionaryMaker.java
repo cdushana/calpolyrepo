@@ -46,19 +46,28 @@ public class DictionaryMaker {
 				
 				// if word not found, insert it into the tree
 				if(!bst.find(word)) {
-					bst.insert(word);
+					try
+					{
+						bst.insert(word);	
+					}
+					catch(BST.MyException e)
+					{
+
+					}
 				}
 			}
-			
+
+			// create stream to print to output file
+			PrintStream output = new PrintStream(outFilepath);
 			// create iterator, then iterate over tree while there is a next element
 			Iterator<String> itr = bst.iteratorIn();
 			while(itr.hasNext()) {
-				System.out.println(itr.next());
+				output.println(itr.next());
 			}
+			output.close();
 		}
-		
 		catch(Exception e) {
-			System.out.println("One of the filepaths could not be resolved to a file.");
+			System.out.println("Invalid file.");
 		}
 	}	
 }

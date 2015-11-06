@@ -13,15 +13,19 @@ import java.util.NoSuchElementException;
 
 public class BST<T extends Comparable<? super T>> {
 	private class BSTNode {
+		// delcares element of BSTNode
 		T element;
+		// defines left and right nodes of the BST
 		BSTNode left, right;
 
+		// creates BSTNode with everything set to null
 		public BSTNode() {
 			element = null;
 			left = null;
 			right = null;
 		}
 
+		// creates BSTNode with everything set to what user wishes
 		public BSTNode(T element, BSTNode left, BSTNode right) {
 			this.element = element;
 			this.left = left;
@@ -29,14 +33,17 @@ public class BST<T extends Comparable<? super T>> {
 		}
 	}
 
+	// sets root for tree
 	private BSTNode root;
 
 	/*
 	 * Class for a pre-order iterator
 	 */
 	private class PreIter implements Iterator {
+		// creates new stack for iterator
 		private MyStack<BSTNode> iterStack = new MyStack<BSTNode>();
 		
+		// creates preorder iterator
 		public PreIter() {
 			// if the BST has nodes, push the root to iterator
 			if(!isEmpty()) {
@@ -44,6 +51,9 @@ public class BST<T extends Comparable<? super T>> {
 			}
 		}
 		
+		/*
+		 * uses iterator to determine if there is a next value, boolean output
+		 */
 		// if iterStack is empty, we are at the end
 		public boolean hasNext() {
 			if(iterStack.isEmpty()) {
@@ -55,6 +65,9 @@ public class BST<T extends Comparable<? super T>> {
 			}
 		}
 		
+		/*
+		 *	uses iterator to output what the next value is, T output
+		 */
 		public T next() {
 			if(!hasNext()) {
 				throw new NoSuchElementException();
@@ -82,9 +95,10 @@ public class BST<T extends Comparable<? super T>> {
 	 * Class for an in-order iterator
 	 */
 	private class InIter implements Iterator {
-		
+		// creates new stack for iterator
 		private MyStack<BSTNode> iterStack = new MyStack<BSTNode>();
 		
+		// creates in order iterator
 		public InIter() {
 			// if the BST has nodes, push the root to iterator first
 			if(!isEmpty()) {
@@ -100,6 +114,9 @@ public class BST<T extends Comparable<? super T>> {
 			}
 		}
 		
+		/*
+		 * uses iterator to determine if there is a next value, boolean output
+		 */
 		// if iterStack is empty, we are at the end
 		public boolean hasNext() {
 			if(iterStack.isEmpty()) {
@@ -111,6 +128,9 @@ public class BST<T extends Comparable<? super T>> {
 			}
 		}
 		
+		/*
+		 *	uses iterator to output what the next value is, T output
+		 */
 		public T next() {
 			if(!hasNext()) {
 				throw new NoSuchElementException();
@@ -136,9 +156,10 @@ public class BST<T extends Comparable<? super T>> {
 	 * Class for a level-order iterator
 	 */
 	private class LevelIter implements Iterator {
-
+		// creates new stack for iterator
 		private LQueue<BSTNode> iterQueue = new LQueue<BSTNode>();
 		
+		// creates level order iterator
 		public LevelIter() {
 			// if the BST has nodes, push the root to iterator first
 			if(!isEmpty()) {
@@ -146,6 +167,9 @@ public class BST<T extends Comparable<? super T>> {
 			}
 		}
 		
+		/*
+		 * uses iterator to determine if there is a next value, boolean output
+		 */
 		// if iterStack is empty, we are at the end
 		public boolean hasNext() {
 			if(iterQueue.isEmpty()) {
@@ -157,6 +181,9 @@ public class BST<T extends Comparable<? super T>> {
 			}
 		}
 		
+		/*
+		 *	uses iterator to output what the next value is, T output
+		 */
 		public T next() {
 			if(!hasNext()) {
 				throw new NoSuchElementException();
@@ -423,12 +450,12 @@ public class BST<T extends Comparable<? super T>> {
 		printTree(root, "");
 	}
 
+	// recursive support method for above
 	private void printTree(BSTNode root, String indent)
 	{
 		if(root != null)
 		{
 			System.out.println(indent + root.element);
-			//indent = indent + "   ";
 			printTree(root.left, indent + "    ");
 			printTree(root.right, indent + "    ");
 		}
