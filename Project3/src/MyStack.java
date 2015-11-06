@@ -1,11 +1,12 @@
-/* The generic class MyStack<T> has been developed
+/* 
+ * The generic class MyStack<T> has been developed
  * to represent a stack implemented with a Linked List.
  *
  * @authors Christiana Ushana & Devon Grove
- * @version Program 1
+ * @version Program 3 (from Program 1)
  * @version CPE103-9/10
  * @version Fall 2015
- * @version 10/9/15
+ * @version 11/6/15
  */
 
 import java.util.*;

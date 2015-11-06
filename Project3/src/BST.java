@@ -1,7 +1,8 @@
-/* BST is a user-implemented Binary Search Tree.
+/* 
+ * BST is a user-implemented Binary Search Tree.
  *
- * @authors Christiana Ushana & Devon Grove
- * @version Project 3
+ * @authors Christiana Ushana & Devon Grove (djgrove)
+ * @version Program 3
  * @version CPE103-9/10
  * @version Fall 2015
  * @version 11/6/15
@@ -191,6 +192,10 @@ public class BST<T extends Comparable<? super T>> {
 		root = null;
 	}
 
+	/*
+	 * Inserts a given item into the appropriate location in the tree
+	 * @param T - element to be inserted
+	 */
 	public void insert(T item) {
 		insert(item, root);
 	}
@@ -222,10 +227,18 @@ public class BST<T extends Comparable<? super T>> {
 
 
 	/*
-	 * 
+	 * Attempts to delete the given element from the tree, if it is present
+	 * @param T - the element to delete from the tree;
 	 */
 	public void delete(T item) {
-
+		delete(item, root);
+	}
+	
+	// recursive support method for above
+	private BSTNode delete(T item, BSTNode current) {
+		
+		
+		return current;
 	}
 
 	/*
