@@ -237,7 +237,7 @@ public class BST<T extends Comparable<? super T>> {
 	 * @param T - the element to delete from the tree;
 	 */
 	public void delete(T item) {
-		delete(item, root);
+		root = delete(item, root);
 	}
 	
 	// recursive support method for above
@@ -263,7 +263,7 @@ public class BST<T extends Comparable<? super T>> {
 				// get smallest of right subtree, then delete this node
 				else {
 					current.element = findMinimum(current.right);
-					delete(current.element, current.right);
+					current.right = delete(current.element, current.right);
 				}
 			}
 			
