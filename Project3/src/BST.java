@@ -136,7 +136,7 @@ public class BST<T extends Comparable<? super T>> {
 	 */
 	private class LevelIter {
 
-		private LQueue<BSTNode> iterQueue = new MyStack<BSTNode>();
+		private LQueue<BSTNode> iterQueue = new LQueue<BSTNode>();
 		
 		public LevelIter() {
 			// if the BST has nodes, push the root to iterator first
@@ -179,6 +179,9 @@ public class BST<T extends Comparable<? super T>> {
 		}
 	}
 
+	/*
+	 * User-created exception class for exceptions in this class
+	 */
 	public static class MyException extends RuntimeException  {
 		public MyException() {}
 		
@@ -188,6 +191,9 @@ public class BST<T extends Comparable<? super T>> {
 		}
 	}
 
+	/*
+	 * Creates a new Binary Search Tree, initializing root to null
+	 */
 	public BST() {
 		root = null;
 	}
@@ -325,17 +331,23 @@ public class BST<T extends Comparable<? super T>> {
 		return findMinimum(current.right);
 	}
 	
-	// create pre iterator
+	/*
+	 * creates a pre order iterator
+	 */
 	public Iterator<T> iteratorPre() {
 		return new PreIter();
 	}
 
-	// create in iterator
+	/*
+	 * creates an in order iterator
+	 */
 	public Iterator<T> iteratorIn() {
 		return new InIter();
 	}
 
-	// create level iterator
+	/*
+	 * Creates a level order iterator
+	 */
 	public Iterator<T> iteratorLevel() {
 		return new LevelIter();
 	}
