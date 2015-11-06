@@ -16,6 +16,10 @@ public class BSTDriver {
 		
 		Scanner sc = new Scanner(System.in);
 		BST<Integer> tree = new BST<Integer>();
+
+		Iterator<Integer> preItr;
+      	Iterator<Integer> inItr;
+      	Iterator<Integer> levelItr;
 		
 		System.out.println("Choose one of the following operations by entering provided letter:");
 		System.out.println("     a - add the element");
@@ -44,11 +48,19 @@ public class BSTDriver {
 				switch(input)
 				{
 					case 'a': 
-						System.out.println("What number would you like to add to the tree?");
-						int newNum = sc.nextInt();
-						tree.insert(newNum);
-						System.out.println(newNum + " was added to the tree.");
+						try
+						{
+							System.out.println("What number would you like to add to the tree?");
+							int newNum = sc.nextInt();
+							tree.insert(newNum);
+							System.out.println(newNum + " was added to the tree.");
+						}
+						catch(Exception e)
+						{
+							System.out.println("Duplicate item.");
+						}
 						break;
+						
 					case 'd': 
 						System.out.println("What number would you like to try to delete from the tree?");
 						int deleteNum = sc.nextInt();
@@ -59,6 +71,14 @@ public class BSTDriver {
 						System.out.println("What would you like to search for?");
 						int findNum = sc.nextInt();
 						tree.find(findNum);
+						if(tree.find(findNum))
+						{
+							System.out.println(findNum + " is in the tree.");
+						}
+						else
+						{
+							System.out.println(findNum + " is NOT in the tree.");
+						}
 						break;
 					case 'e': 
 						if(tree.isEmpty())
@@ -77,16 +97,38 @@ public class BSTDriver {
 						System.out.println("Minimum element is " + tree.findMinimum());
 						break;
 					case 'x': 
-						System.out.println("Minimum element is " + tree.findMaximum());
+						System.out.println("Maximum element is " + tree.findMaximum());
 						break;
 					case 'p': 
+						preItr = tree.iteratorPre();
+						System.out.println("Preorder tree: ");
+						while(preItr.hasNext())
+						{
+							System.out.print(preItr.next() + " ");
+						}
+						System.out.println();
 						break;
 					case 'i': 
+						inItr = tree.iteratorIn();
+						System.out.println("Inorder tree: ");
+						while(inItr.hasNext())
+						{
+							System.out.print(inItr.next() + " ");
+						}
+						System.out.println();
 						break;
 					case 'l': 
+						levelItr = tree.iteratorLevel();
+						System.out.println("Levelorder tree: ");
+						while(levelItr.hasNext())
+						{
+							System.out.print(levelItr.next() + " ");
+						}
+						System.out.println();
 						break;
 					case 't': 
 						tree.printTree();
+						System.out.println();
 						break;
 					case 'o': 
 						System.out.println(tree.toString());

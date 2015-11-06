@@ -120,6 +120,7 @@ public class BST<T extends Comparable<? super T>> {
 			
 			if(current.right != null) {
 				iterStack.push(current.right);
+				// i think its missing something here
 			}
 			
 			return current.element;
@@ -150,8 +151,8 @@ public class BST<T extends Comparable<? super T>> {
 			if(iterQueue.isEmpty()) {
 				return false;
 			}
-		
-			else {
+			else
+			{
 				return true;
 			}
 		}
@@ -164,10 +165,10 @@ public class BST<T extends Comparable<? super T>> {
 			BSTNode current = iterQueue.dequeue();
 			
 			if(current.left != null) {
-				iterQueue.enqueue(current);
+				iterQueue.enqueue(current.left);
 			}
 			if(current.right != null) {
-				iterQueue.enqueue(current);
+				iterQueue.enqueue(current.right);
 			}
 			
 			return current.element;
@@ -243,41 +244,43 @@ public class BST<T extends Comparable<? super T>> {
 	// recursive support method for above
 	private BSTNode delete(T item, BSTNode current) {
 		// if current is null, nothing new to return
-		if(current != null) {
-			if(item.equals(current.element)) {
-				// if no children, delete node by setting null
-				if(current.left == null && current.right == null) {
-					current = null;
-				}
-				
-				//if only left child, replace with this
-				else if(current.left != null && current.right == null) {
-					current = current.left;
-				}
-				
-				// if only right child, replace with this
-				else if(current.left == null && current.right != null) {
-					current = current.right;
-				}
-				
+		if(current != null)
+		{
+			// if item is smaller, go left
+			if(item.compareTo(current.element) < 0)
+			{
+				current.left = delete(item, current.left);
+			}
+			// if item is larger, go right
+			else if(item.compareTo(current.element) > 0)
+			{
+				current.right = delete(item, current.right);
+			}
+			else
+			{
 				// get smallest of right subtree, then delete this node
-				else {
+				if(current.left != null && current.right != null)
+				{
 					current.element = findMinimum(current.right);
 					current.right = delete(current.element, current.right);
 				}
-			}
-			
-			// if item is smaller, go left
-			else if(item.compareTo(current.element) < 0) {
-				return delete(item, current.left);
-			}
-			
-			// if larger, go right
-			else if(item.compareTo(current.element) > 0) {
-				return delete(item, current.right);
+				//if only left child, replace with this
+				else if(current.left != null  && current.right == null)
+				{
+					current = current.left;
+				}
+				// if only right child, replace with this
+				else if(current.left == null && current.right != null)
+				{
+					current = current.right;
+				}
+				else
+				{
+					// if no children, delete node by setting to null
+					current = null;
+				}
 			}
 		}
-		
 		return current;
 	}
 
@@ -386,7 +389,10 @@ public class BST<T extends Comparable<? super T>> {
 		if(current.right == null) {
 			return current.element;
 		}
-		return findMinimum(current.right);
+		else
+		{
+			return findMaximum(current.right);
+		}
 	}
 	
 	/*
@@ -414,7 +420,18 @@ public class BST<T extends Comparable<? super T>> {
 	 * Prints all the elements of the tree
 	 */
 	public void printTree() {
-		
+		printTree(root, "");
+	}
+
+	private void printTree(BSTNode root, String indent)
+	{
+		if(root != null)
+		{
+			System.out.println(indent + root.element);
+			//indent = indent + "   ";
+			printTree(root.left, indent + "    ");
+			printTree(root.right, indent + "    ");
+		}
 	}
 
 	/*
