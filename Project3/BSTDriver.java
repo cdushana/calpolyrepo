@@ -1,7 +1,7 @@
 /* 
  * BSTDriver is a program to run the Binary Search Tree class
  *
- * @authors Christiana Ushana & Devon Grove (djgrove)
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
  * @version Program 3
  * @version CPE103-9/10
  * @version Fall 2015

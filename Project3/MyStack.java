@@ -2,7 +2,7 @@
  * The generic class MyStack<T> has been developed
  * to represent a stack implemented with a Linked List.
  *
- * @authors Christiana Ushana & Devon Grove
+ * @authors Christiana Ushana (cushana) & Devon Grove
  * @version Program 3 (from Program 1)
  * @version CPE103-9/10
  * @version Fall 2015

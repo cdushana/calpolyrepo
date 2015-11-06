@@ -1,7 +1,7 @@
 /* 
  * BST is a user-implemented Binary Search Tree.
  *
- * @authors Christiana Ushana & Devon Grove (djgrove)
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
  * @version Program 3
  * @version CPE103-9/10
  * @version Fall 2015

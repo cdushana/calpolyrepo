@@ -2,7 +2,7 @@
  * DictionaryMaker is a class to use a BST to sort words alphabetically
  * much like a dictionary, outputting to a text file
  *
- * @authors Christiana Ushana () & Devon Grove (djgrove)
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
  * @version Program 3
  * @version CPE103-9/10
  * @version Fall 2015

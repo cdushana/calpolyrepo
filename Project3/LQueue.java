@@ -1,7 +1,7 @@
 /*
  * LQueue is a generic class representing a queue as a linked list
  *
- * @authors Christiana Ushana & Devon Grove (djgrove)
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
  * @version Program 3 (from previous lab assignment)
  * @version CPE103-9/10
  * @version Fall 2015
