@@ -192,25 +192,32 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	public void insert(T item) {
-		// if tree is empty, make new item the root node
-		if(isEmpty()) {
-			root = new BSTNode(item, null, null);
+		insert(item, root);
+	}
+	
+	// recusive support method for above
+	private BSTNode insert(T item, BSTNode current) {
+		// if current node does not exist, make new node for item
+		if(current == null) {
+			current = new BSTNode(item, null, null);
 		}
 		
 		// if new item is smaller, go to the left
-		else if(item.compareTo()) {
-			
+		else if(item.compareTo(current.element) < 1) {
+			insert(item, current.left);
 		}
-		
+	
 		// if new item is larger, go to the right
-		else if() {
-			
+		else if(item.compareTo(current.element) > 1) {
+			insert(item, current.right);
 		}
 		
 		// otherwise we have duplicate and throw exception
 		else {
-			
+			throw new MyException("Duplicate item");
 		}
+		
+		return current;
 	}
 
 
