@@ -34,24 +34,24 @@ public class BST<T extends Comparable<? super T>> {
 	 * Class for a pre-order iterator
 	 */
 	private class PreIter {
-		private MyStack<BSTNode> stack = new MyStack<BSTNode>();
+		private MyStack<BSTNode> iterStack = new MyStack<BSTNode>();
 		
 		public PreIter() {
-			
 			// if the BST has nodes, push the root to iterator
 			if(!isEmpty()) {
-				stack.push(root);
+				iterStack.push(root);
 			}
 		}
 		
+		// if iterStack is empty, we are at the end
 		public boolean hasNext() {
-			BSTNode current = stack.peek();
-			
-			if(current.left == null && current.right == null) {
+			if(iterStack.isEmpty()) {
 				return false;
 			}
-			
-			return true;
+		
+			else {
+				return true;
+			}
 		}
 		
 		public T next() {
@@ -59,13 +59,13 @@ public class BST<T extends Comparable<? super T>> {
 				throw new NoSuchElementException();
 			}
 			
-			BSTNode current = stack.pop();
+			BSTNode current = iterStack.pop();
 			
 			if(current.right != null) {
-				stack.push(current);
+				iterStack.push(current.right);
 			}
 			if(current.left != null) {
-				stack.push(current);
+				iterStack.push(current.left);
 			}
 			
 			return current.element;
@@ -82,20 +82,49 @@ public class BST<T extends Comparable<? super T>> {
 	 */
 	private class InIter {
 		
-		private BSTNode current;
+		private MyStack<BSTNode> iterStack = new MyStack<BSTNode>();
 		
 		public InIter() {
-			current = root;
+			// if the BST has nodes, push the root to iterator first
+			if(!isEmpty()) {
+				iterStack.push(root);
+				
+				BSTNode current = root;
+				
+				// traverse the tree to leftmost element
+				while(current.left != null) {
+					iterStack.push(current.left);
+					current = current.left;
+				}
+			}
 		}
 		
+		// if iterStack is empty, we are at the end
 		public boolean hasNext() {
-			return (current.left != null);
+			if(iterStack.isEmpty()) {
+				return false;
+			}
+		
+			else {
+				return true;
+			}
 		}
 		
-		public void next() {
+		public T next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException();
+			}
 			
+			BSTNode current = iterStack.pop();
+			
+			if(current.right != null) {
+				iterStack.push(current.right);
+			}
+			
+			return current.element;
 		}
 		
+		// not allowed
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
@@ -106,20 +135,44 @@ public class BST<T extends Comparable<? super T>> {
 	 */
 	private class LevelIter {
 
-		private BSTNode current;
+		private LQueue<BSTNode> iterQueue = new MyStack<BSTNode>();
 		
 		public LevelIter() {
-			current = root;
+			// if the BST has nodes, push the root to iterator first
+			if(!isEmpty()) {
+				iterQueue.enqueue(root);
+			}
 		}
 		
+		// if iterStack is empty, we are at the end
 		public boolean hasNext() {
-			return (current.left != null);
+			if(iterQueue.isEmpty()) {
+				return false;
+			}
+		
+			else {
+				return true;
+			}
 		}
 		
-		public void next() {
+		public T next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException();
+			}
 			
+			BSTNode current = iterQueue.dequeue();
+			
+			if(current.left != null) {
+				iterQueue.enqueue(current);
+			}
+			if(current.right != null) {
+				iterQueue.enqueue(current);
+			}
+			
+			return current.element;
 		}
 		
+		// not allowed
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
@@ -254,7 +307,7 @@ public class BST<T extends Comparable<? super T>> {
 	
 	// create pre iterator
 	public Iterator<T> iteratorPre() {
-		return new PreITer();
+		return new PreIter();
 	}
 
 	// create in iterator
