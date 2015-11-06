@@ -34,7 +34,7 @@ public class BST<T extends Comparable<? super T>> {
 	/*
 	 * Class for a pre-order iterator
 	 */
-	private class PreIter {
+	private class PreIter implements Iterator {
 		private MyStack<BSTNode> iterStack = new MyStack<BSTNode>();
 		
 		public PreIter() {
@@ -81,7 +81,7 @@ public class BST<T extends Comparable<? super T>> {
 	/*
 	 * Class for an in-order iterator
 	 */
-	private class InIter {
+	private class InIter implements Iterator {
 		
 		private MyStack<BSTNode> iterStack = new MyStack<BSTNode>();
 		
@@ -134,7 +134,7 @@ public class BST<T extends Comparable<? super T>> {
 	/*
 	 * Class for a level-order iterator
 	 */
-	private class LevelIter {
+	private class LevelIter implements Iterator {
 
 		private LQueue<BSTNode> iterQueue = new LQueue<BSTNode>();
 		
@@ -388,6 +388,18 @@ public class BST<T extends Comparable<? super T>> {
 	 * @return String - tree formatted as a string
 	 */
 	public String toString() {
-
+		return toString("", root);
+	}
+	
+	// recursive support method for above
+	private String toString(String str, BSTNode current) {
+		if(current != null) {
+			str += current.element;
+			str += " ";
+			str += toString(str, current.left);
+			str += toString(str, current.right);
+		}
+		
+		return str;
 	}
 }
