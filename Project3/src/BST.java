@@ -242,7 +242,40 @@ public class BST<T extends Comparable<? super T>> {
 	
 	// recursive support method for above
 	private BSTNode delete(T item, BSTNode current) {
-		
+		// if current is null, nothing new to return
+		if(current != null) {
+			if(item.equals(current.element)) {
+				// if no children, delete node by setting null
+				if(current.left == null && current.right == null) {
+					current = null;
+				}
+				
+				//if only left child, replace with this
+				else if(current.left != null && current.right == null) {
+					current = current.left;
+				}
+				
+				// if only right child, replace with this
+				else if(current.left == null && current.right != null) {
+					current = current.right;
+				}
+				
+				// algorithm to handle if two children exist
+				else {
+					current.element = findMinimum(current.right);
+				}
+			}
+			
+			// if item is smaller, go left
+			else if(item.compareTo(current.element) < 0) {
+				return delete(item, current.left);
+			}
+			
+			// if larger, go right
+			else if(item.compareTo(current.element) > 0) {
+				return delete(item, current.right);
+			}
+		}
 		
 		return current;
 	}
