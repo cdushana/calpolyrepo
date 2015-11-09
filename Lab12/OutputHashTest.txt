@@ -1,0 +1,218 @@
+Input the size for your table.
+10
+Choose one of the following operations:
+-- add an element to the hash table (enter the letter a)
+-- find an element within the hash table (enter the letter f)
+-- delete an element from the hash table (enter the letter d)
+-- check if the hash table is empty (enter the letter e)
+-- print everything in the hash table (enter the letter p)
+-- quit (enter the letter q)
+e
+The table is empty.
+a
+What would you like to add to the hash table?
+2
+2 added to hash table
+a
+What would you like to add to the hash table?
+5
+5 added to hash table
+a
+What would you like to add to the hash table?
+4
+4 added to hash table
+a
+What would you like to add to the hash table?
+12
+12 added to hash table
+a
+What would you like to add to the hash table?
+15
+15 added to hash table
+a
+What would you like to add to the hash table?
+99
+99 added to hash table
+a
+What would you like to add to the hash table?
+25
+25 added to hash table
+f
+What integer would you like to find within the hash table?
+2
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+12
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+5
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+15
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+25
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+4
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+99
+The integer is within the table.
+f
+What integer would you like to find within the hash table?
+0
+The integer is NOT within the table.
+f
+What integer would you like to find within the hash table?
+3
+The integer is NOT within the table.
+f
+What integer would you like to find within the hash table?
+8
+The integer is NOT within the table.
+f
+What integer would you like to find within the hash table?
+10
+The integer is NOT within the table.
+p
+0: 
+1: 
+2: 12 2 
+3: 
+4: 4 
+5: 25 15 5 
+6: 
+7: 
+8: 
+9: 99 
+d
+What integer would you like to delete within the hash table?
+4
+4 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+5
+5 has been deleted if it was in the table.
+f
+What integer would you like to find within the hash table?
+4
+The integer is NOT within the table.
+f
+What integer would you like to find within the hash table?
+5
+The integer is NOT within the table.
+d
+What integer would you like to delete within the hash table?
+7
+7 has been deleted if it was in the table.
+e
+The table is NOT empty.
+p
+0: 
+1: 
+2: 12 2 
+3: 
+4: 
+5: 25 15 
+6: 
+7: 
+8: 
+9: 99 
+a
+What would you like to add to the hash table?
+14
+14 added to hash table
+a
+What would you like to add to the hash table?
+24
+24 added to hash table
+a
+What would you like to add to the hash table?
+34
+34 added to hash table
+p
+0: 
+1: 
+2: 12 2 
+3: 
+4: 34 24 14 
+5: 25 15 
+6: 
+7: 
+8: 
+9: 99 
+d
+What integer would you like to delete within the hash table?
+2
+2 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+12
+12 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+99
+99 has been deleted if it was in the table.
+e
+The table is NOT empty.
+a
+What would you like to add to the hash table?
+22
+22 added to hash table
+p
+0: 
+1: 
+2: 22 
+3: 
+4: 34 24 14 
+5: 25 15 
+6: 
+7: 
+8: 
+9:
+d
+What integer would you like to delete within the hash table?
+22
+22 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+34
+34 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+24
+24 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+14
+14 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+25
+25 has been deleted if it was in the table.
+d
+What integer would you like to delete within the hash table?
+15
+15 has been deleted if it was in the table.
+e
+The table is empty.
+p
+0: 
+1: 
+2: 
+3: 
+4: 
+5: 
+6: 
+7: 
+8: 
+9: 
+q
+quitting
