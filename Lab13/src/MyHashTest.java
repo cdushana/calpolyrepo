@@ -19,6 +19,9 @@ public class MyHashTest
 		System.out.println("-- delete an element from the hash table (enter the letter d)");
 		System.out.println("-- check if the hash table is empty (enter the letter e)");
 		System.out.println("-- print everything in the hash table (enter the letter p)");
+		System.out.println("-- clear the hash table (enter the letter k)");
+		System.out.println("-- get the size of the hash table (enter the letter s)");
+		System.out.println("-- output the hash table with an iterator (enter the letter o)");
 		System.out.println("-- quit (enter the letter q)");
 		
 		boolean run = true;
@@ -73,9 +76,17 @@ public class MyHashTest
 					break;
 
 				case 'p': 
-				hashTable.print();
-				break;
-
+					hashTable.print();
+					break;
+				case 'k':
+					hashTable.makeEmpty();
+					break;
+				case 's':
+					System.out.println("Hash table size is " + hashTable.size());
+					break;
+				case 'o':
+					//output the collection
+					break;
 				case 'q': 
 					System.out.println("quitting");
 					run = false;
