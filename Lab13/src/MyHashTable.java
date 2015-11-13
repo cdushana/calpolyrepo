@@ -7,36 +7,30 @@ public class MyHashTable<T>
 
 	// constructor: creates array of LL objects of given size 
 	//  and initializes components to empty lists
-	public MyHashTable(int size)
-	{
+	public MyHashTable(int size) {
 		array =  (LinkedList<T>[]) new LinkedList[size];
 
 		// initialize each component to empty list
-		for(int i = 0; i < array.length; i++)
-		{
+		for(int i = 0; i < array.length; i++) {
 			array[i] = new LinkedList<T>();
 		}
 	}
 
 	// returns int value - the hash value of the parameter - object for your table
 	// obtain hasCode of param object, take val and get modulus over array.length
-	private int hash(T item)
-	{
+	private int hash(T item) {
 		return item.hashCode() % array.length;
 	}
 
-	public void insert(T item)
-	{
+	public void insert(T item) {
 		array[hash(item)].addFirst(item);
 	}
 
-	public void delete(T item)
-	{
+	public void delete(T item) {
 		array[hash(item)].remove(item);
 	}
 
-	public boolean find(T item)
-	{
+	public boolean find(T item) {
 		return array[hash(item)].contains(item);
 	}
 
@@ -64,5 +58,19 @@ public class MyHashTable<T>
 			}
 			System.out.println();
 		}
+	}
+	
+	/*
+	 * Resets the Hash Table by clearing all linked lists
+	 */
+	public void makeEmpty() {
+		// reset each array element to empty linked list
+		for(int i = 0; i < array.length; i++) {
+			array[i] = new LinkedList<T>();
+		}
+	}
+	
+	public void size() {
+		
 	}
 }
