@@ -61,7 +61,7 @@ public class MyHashTable<T>
 	}
 	
 	/*
-	 * Resets the Hash Table by clearing all linked lists
+	 * Resets the hash table by clearing all linked lists
 	 */
 	public void makeEmpty() {
 		// reset each array element to empty linked list
@@ -70,7 +70,42 @@ public class MyHashTable<T>
 		}
 	}
 	
-	public void size() {
+	/*
+	 * Returns the size of the hash table by getting the number of elements
+	 * @return int - the number of elements in the table
+	 */
+	public int size() {
+		return 0;
+	}
+	
+	/*
+	 * Class for a hash table iterator
+	 */
+	private class Iter implements Iterator {
+		// track the element in hash table to visit next
+		private int i;
+		private int j;
 		
+		// creates preorder iterator
+		public Iter() {
+		}
+		
+		/*
+		 * uses iterator to determine if there is a next value, boolean output
+		 */
+		public boolean hasNext() {
+		}
+		
+		/*
+		 *	uses iterator to output what the next value is, T output
+		 */
+		public T next() {
+			return null;
+		}
+		
+		// not allowed
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
 	}
 }
