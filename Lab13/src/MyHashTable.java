@@ -149,7 +149,23 @@ public class MyHashTable<T>
 			}
 			
 			// get the current element iteraotr is on to return later
-			T element = array[i].get(j)
+			T element = array[i].get(j);
+			
+			//increment j if still in same linked list
+			if(j < (array.length - 1)) {
+				j++;
+			}
+			
+			// skip to next i value and reset j
+			else {
+				j = 0;
+				i++;
+				for(i; i < table.length; i++) {
+					if(!array[i].isEmpty()) {
+						break;
+					}
+				}
+			}
 			
 			return element;
 		}
