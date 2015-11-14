@@ -6,12 +6,13 @@ public class MyHashTest
 	{
 		// create scanner to take input
 		Scanner scanner = new Scanner(System.in);
-
+	d
 		// prompt user for int input to define size of table
 		System.out.println("Input the size for your table.");
-
+		
 		// declare Hash Table with determined size
-		MyHashTable<Integer> hashTable = new MyHashTable<Integer>(scanner.nextInt());
+		MyHashTable<Integer>  hashTable = new MyHashTable<Integer>(scanner.nextInt());
+		Iterator<Integer> i;
 
 		System.out.println("Choose one of the following operations:");
 		System.out.println("-- add an element to the hash table (enter the letter a)");
@@ -85,7 +86,17 @@ public class MyHashTest
 					System.out.println("Hash table size is " + hashTable.size());
 					break;
 				case 'o':
-					//output the collection
+					  i = hashTable.iterator();
+					  System.out.println();
+					  
+					  while(i.hasNext()) { 
+						  System.out.print(i.next() + " "); 
+					  } 
+					  
+					  // skip a line at the end
+					  System.out.println(""); 
+				break; 
+
 					break;
 				case 'q': 
 					System.out.println("quitting");
