@@ -1,3 +1,13 @@
+/* 
+ * MyHashTest runs the MyHashTable class
+ *
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
+ * @version Lab 13
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 11/6/15
+ */
+
 import java.util.*;
 
 public class MyHashTest
@@ -6,7 +16,7 @@ public class MyHashTest
 	{
 		// create scanner to take input
 		Scanner scanner = new Scanner(System.in);
-	d
+		
 		// prompt user for int input to define size of table
 		System.out.println("Input the size for your table.");
 		
@@ -86,17 +96,15 @@ public class MyHashTest
 					System.out.println("Hash table size is " + hashTable.size());
 					break;
 				case 'o':
-					  i = hashTable.iterator();
-					  System.out.println();
-					  
-					  while(i.hasNext()) { 
-						  System.out.print(i.next() + " "); 
-					  } 
-					  
-					  // skip a line at the end
-					  System.out.println(""); 
-				break; 
-
+					i = hashTable.iterator();
+					System.out.println();
+		
+					while(i.hasNext()) { 
+						System.out.print(i.next() + " "); 
+					} 
+		  
+					// skip a line at the end
+					System.out.println(""); 
 					break;
 				case 'q': 
 					System.out.println("quitting");

@@ -1,3 +1,13 @@
+/* 
+ * MyHashTable is a user-implemented hash table
+ *
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
+ * @version Program 3
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 11/6/15
+ */
+
 import java.util.*;
 
 public class MyHashTable<T>
@@ -160,8 +170,10 @@ public class MyHashTable<T>
 			else {
 				j = 0;
 				i++;
-				for(i; i < table.length; i++) {
+				for(int k = 0; k < array.length; k++) {
+					
 					if(!array[i].isEmpty()) {
+						i = k;
 						break;
 					}
 				}
