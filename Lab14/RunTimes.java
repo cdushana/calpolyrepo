@@ -47,7 +47,7 @@ public class RunTimes
 
 		System.out.println("NQuadratic algorithm’s running times: ");
 		input = 10000;
-		while(input < 1000000000)
+		while(input < 800000)
 		{
 			Algorithms.quadraticAlgTime(input);
 			long startTime = System.nanoTime();
