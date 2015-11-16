@@ -21,7 +21,7 @@ public class Algorithms
 
 	public static void logarithmicAlgTime(long N)
 	{
-		for(long i = N; i < 1 ; i / 2) // check dividing by two
+		for(long i = N; i != 1 ; i /= 2) // check dividing by two
 		{
 			long x = 1;
 		}
@@ -31,7 +31,7 @@ public class Algorithms
 	{
 		for(long i = 1; i < N; i++)
 		{
-			for(long j = N; j < 1; j / 2) // check dividing by two
+			for(long j = N; j != 1; j /= 2) // check dividing by two
 			{
 				long x = 1;
 			}

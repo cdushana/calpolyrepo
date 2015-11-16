@@ -13,8 +13,8 @@ public class RunTimes
 		long input = 10000;
 		while(input < 1000000000)
 		{
-			Algorithms.logarithmicAlgTime(input); // CHECK
 			long startTime = System.nanoTime();
+			Algorithms.logarithmicAlgTime(input); // CHECK
 			long estimatedTime = (System.nanoTime() - startTime) / 1000000;
 			System.out.println("T(" + input + ") = " + estimatedTime);	// T(10000) = 0, 10000 = N	
 			input *= 2;
@@ -25,8 +25,8 @@ public class RunTimes
 		input = 10000;
 		while(input < 1000000000)
 		{
-			Algorithms.linearAlgTime(input); // CHECK
 			long startTime = System.nanoTime();
+			Algorithms.linearAlgTime(input); // CHECK
 			long estimatedTime = (System.nanoTime() - startTime) / 1000000;
 			System.out.println("T(" + input + ") = " + estimatedTime);	// T(10000) = 0, 10000 = N
 			input *= 2;
@@ -37,8 +37,8 @@ public class RunTimes
 		input = 10000;
 		while(input < 1000000000)
 		{
-			Algorithms.NlogNAlgTime(input);
 			long startTime = System.nanoTime();
+			Algorithms.NlogNAlgTime(input);
 			long estimatedTime = (System.nanoTime() - startTime) / 1000000;
 			System.out.println("T(" + input + ") = " + estimatedTime);	// T(10000) = 0, 10000 = N
 			input *= 2;
@@ -49,8 +49,8 @@ public class RunTimes
 		input = 10000;
 		while(input < 800000)
 		{
-			Algorithms.quadraticAlgTime(input);
 			long startTime = System.nanoTime();
+			Algorithms.quadraticAlgTime(input);
 			long estimatedTime = (System.nanoTime() - startTime) / 1000000;
 			System.out.println("T(" + input + ") = " + estimatedTime);	// T(10000) = 0, 10000 = N
 			input *= 2;
