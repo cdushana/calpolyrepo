@@ -1,3 +1,13 @@
+/* 
+ * Student is a class to represent a student by ID and last name.
+ *
+ * @authors Christiana Ushana (cushana) & Devon Grove (djgrove)
+ * @version Program 4
+ * @version CPE103-9/10
+ * @version Fall 2015
+ * @version 11/20/15
+ */
+
 public class Student
 {
 	private long id;

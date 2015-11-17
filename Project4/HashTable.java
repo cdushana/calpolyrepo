@@ -18,24 +18,21 @@ public class HashTable
 	 */
 	private class HashEntry
 	{
-		// element aspect of Hash Entry - data
-		public Object element;
-		// boolean aspect of Hash Entry - is active or not
-		public boolean isActive;
+		public Object element; // data in hash entry
+		public boolean isActive; // whether entry is active or not
 
-		// check
-		// constructor to create an entry into the hash table
-		public HashEntry(Object entry)
+		/*
+		 * Creates an entry into hash table using provided data 
+		 */
+		public HashEntry(Object data)
 		{
-			element = entry;
+			element = data;
 			isActive = true;
 		}
 	}
 
-	// array of objects to hold the table
-	private HashEntry table[];
-	// int var to hold # of occupied cells in table (active and inactive)
-	private int occupiedCells;
+	private HashEntry table[]; 	// store the table
+	private int occupiedCells; // # of occupied cells in hash table (active and inactive)
 
 	/*
 	 * constructor to create an empty hash table
@@ -47,10 +44,10 @@ public class HashTable
 		occupiedCells = 0;
 	}
 
-	// check
+	// private support method to find next prime number
 	private int nextPrime(int size)
 	{
-		int i = size + 1;
+		int i = size + 1; // TODO: Should this check the original number first? (No + 1)
 		while(!isPrime(i))
 		{
 			i++;
@@ -60,6 +57,7 @@ public class HashTable
 
 	// referenced code from: 
 	// http://www.mkyong.com/java/how-to-determine-a-prime-number-in-java/
+	// private support method to find next prime number
 	private boolean isPrime(int num)
 	{
 		if(num % 2 == 0)
@@ -84,24 +82,39 @@ public class HashTable
 	{
 		// index of an array cell (active entry)
 		// if inactive, pass over entry
-		public int cursor;
+		public int cursor; // in
 
-		// costructs new iterator
+		/*
+		 * Creates a new iterator
+		 */
 		public Iter()
 		{
 			cursor = 0;
 		}
 
-		// 
+		/*
+		 * Check to see if Iter has a next object to visit
+		 */
 		public boolean hasNext()
 		{
 			return false;
 		}
 
-		//
+		/*
+		 * Gets next object in iterator
+		 */
 		public Object next()
 		{
+			if(!hasNext()) {
+				throw new NoSuchElementException("Iterator did not have another element");
+			}
+			
 			return null;
+		}
+
+		// not supported
+		public void remove() {
+			throw new UnsupportedOperationException("Iter.remove() is an unsupported function");			
 		}
 	}
 
