@@ -38,6 +38,6 @@ public class Student
 
 	public int hashCode()
 	{
-
+		return ((Long)id).hashCode();
 	}
 }
