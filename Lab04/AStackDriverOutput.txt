@@ -1,0 +1,95 @@
+pcp132273pcs:src JoeMacPro$ java AStackDriver
+Choose one of the following operations:
+-- push/add (enter the letter a)
+-- pop/delete (enter the letter d)
+-- peek at the top value of the stack (enter the letter p)
+-- check if the stack is empty (enter the letter e)
+-- quit (enter the letter q)
+e
+empty
+a
+1
+1 pushed
+p
+1 is the top value
+a
+2
+2 pushed
+a
+ddd
+Invalid value
+p
+2 is the top value
+a
+3
+3 pushed
+a
+4
+4 pushed
+a
+0.5
+Invalid value
+p
+4 is the top value
+d
+4 popped
+e
+not empty
+d
+3 popped
+d
+2 popped
+e
+not empty
+p
+1 is the top value
+d
+1 popped
+d
+Invalid operation: stack is empty.
+p
+Invalid operation: stack is empty.
+e
+empty
+a
+1
+1 pushed
+a
+2
+2 pushed
+a
+3
+3 pushed
+a
+4
+4 pushed
+a
+5
+5 pushed
+a
+6
+6 pushed
+a
+7
+7 pushed
+a
+8
+8 pushed
+a
+9
+9 pushed
+a
+10
+10 pushed
+a
+11
+11 pushed
+a
+12
+12 pushed
+e
+not empty
+q
+quitting
+Stack: 12 11 10 9 8 7 6 5 4 3 2 1 
+Goodbye!
