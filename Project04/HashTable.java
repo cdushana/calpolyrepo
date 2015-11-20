@@ -9,7 +9,6 @@
  */
 
 import java.util.*;
-import java.lang.Math;
 
 public class HashTable {
 	
@@ -153,18 +152,18 @@ public class HashTable {
 		}
 		
 		else {
-			if(occupiedCells >= table.size / 2) {
+			if(occupiedCells >= table.length / 2) {
 				rehashTable();
 			}
 		}
 	}
 	
 	private void rehashTable() {
-		int newSize = nextPrime(2 * table.size);
+		int newSize = nextPrime(2 * table.length);
 		HashEntry newTable[] = new HashEntry[newSize];
 		
 		// copy the old table values into new resized table
-		for(int i = 0; i < table.size; i++) {
+		for(int i = 0; i < table.length; i++) {
 			newTable[i] = table[i];
 		}
 		
