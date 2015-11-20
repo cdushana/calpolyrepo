@@ -11,21 +11,17 @@
 import java.util.*;
 import java.lang.Math;
 
-public class HashTable
-{
-	/*
-	 * class of which objects are saved in the table.
-	 */
-	private class HashEntry
-	{
+public class HashTable {
+	
+	// class to save objects in the table
+	private class HashEntry {
 		public Object element; // data in hash entry
 		public boolean isActive; // whether entry is active or not
 
 		/*
 		 * Creates an entry into hash table using provided data 
 		 */
-		public HashEntry(Object data)
-		{
+		public HashEntry(Object data) {
 			element = data;
 			isActive = true;
 		}
@@ -38,20 +34,23 @@ public class HashTable
 	 * constructor to create an empty hash table
 	 * @param numOfElem - number of elements in the collection (NOT table size)
 	 */
-	public HashTable(int numOfElem)
-	{
+	public HashTable(int numOfElem) {
 		table = new HashEntry[nextPrime(2 * numOfElem)];
 		occupiedCells = 0;
 	}
+	
+	private int hash() {
+		
+	}
 
 	// private support method to find next prime number
-	private int nextPrime(int size)
-	{
+	private int nextPrime(int size) {
 		int i = size + 1; // TODO: Should this check the original number first? (No + 1)
-		while(!isPrime(i))
-		{
+		
+		while(!isPrime(i)) {
 			i++;
 		}
+		
 		return i;
 	}
 
@@ -60,17 +59,19 @@ public class HashTable
 	// private support method to find next prime number
 	private boolean isPrime(int num)
 	{
-		if(num % 2 == 0)
-		{
+		
+		// if number is even, it is not prime
+		if(num % 2 == 0) {
 			return false;
 		}
-		for(int i = 3; i * i < num; i += 2)
-		{
-			if(num % i == 0)
-			{
+		
+		// check all other unique factors of the number
+		for(int i = 3; i * i < num; i += 2) {
+			if(num % i == 0) {
 				return false;
 			}
 		}
+		
 		return true;
 	}
 
