@@ -153,8 +153,23 @@ public class HashTable {
 		}
 		
 		else {
-			
+			if(occupiedCells >= table.size / 2) {
+				rehashTable();
+			}
 		}
+	}
+	
+	private void rehashTable() {
+		int newSize = nextPrime(2 * table.size);
+		HashEntry newTable[] = new HashEntry[newSize];
+		
+		// copy the old table values into new resized table
+		for(int i = 0; i < table.size; i++) {
+			newTable[i] = table[i];
+		}
+		
+		// point table to our new table
+		table = newTable;
 	}
 
 	/*
