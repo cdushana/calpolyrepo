@@ -39,13 +39,21 @@ public class HashTable {
 		occupiedCells = 0;
 	}
 	
-	private int hash() {
-		
+	/*
+	 * Hash function to get hash code and make sure it is an index within the table length
+	 * @param Object - the element to add to the hash table
+	 */
+	private int hash(Object element) {
+		int hashCode = element.hashCode() % table.length;
+		return hashCode;
 	}
 
-	// private support method to find next prime number
-	private int nextPrime(int size) {
-		int i = size + 1; // TODO: Should this check the original number first? (No + 1)
+	/*
+	 * Support method to find the next prime number in the sequence
+	 * @param int - the number for which we want to find the next proceeding prime
+	 11*/
+	private int nextPrime(int num) {
+		int i = num + 1;
 		
 		while(!isPrime(i)) {
 			i++;
@@ -56,9 +64,11 @@ public class HashTable {
 
 	// referenced code from: 
 	// http://www.mkyong.com/java/how-to-determine-a-prime-number-in-java/
-	// private support method to find next prime number
-	private boolean isPrime(int num)
-	{
+	/*
+	 * Tests if provided number is prime or not
+	 * @param int - the number to check for prime
+	 */
+	private boolean isPrime(int num) {
 		
 		// if number is even, it is not prime
 		if(num % 2 == 0) {
@@ -80,24 +90,21 @@ public class HashTable {
 	{
 		public int cursor; // current index of iterator, pass over entry if inactive
 
-		/*
-		 * Creates a new iterator
-		 */
-		public Iter()
-		{
+		public Iter() {
 			cursor = 0;
 		}
 
 		/*
 		 * Check to see if Iter has a next object to visit
+		 * @return boolean - whether another object exists or not
 		 */
-		public boolean hasNext()
-		{
+		public boolean hasNext() {
 			return false;
 		}
 
 		/*
 		 * Gets next object in iterator
+		 * @return Object - the next object
 		 */
 		public Object next()
 		{
@@ -114,7 +121,10 @@ public class HashTable {
 		}
 	}
 
-	// adds item to the table
+	/*
+	 * Adds the given item to the hash table
+	 * @param Object - the item to add
+	 */
 	public void insert(Object item)
 	{
 		// nothing will be done if item is already in table & active
@@ -131,31 +141,54 @@ public class HashTable {
 
 	}
 
-	public Object find(Object item)
-	{
+	/*
+	 * Attempts to find given item in the hash table and returns it
+	 * @return Object/null - the object if it was found, null if it was not
+	 */
+	public Object find(Object item)	{
+		
+		
 		return null;
 	}
 
+	/*
+	 * Returns the number of elements in the hash table
+	 * @return int - the number of elements in the table
+	 */
 	public int elementCount()
 	{
 		return 0;
 	}
 
+	/*
+	 * Determines whether the hash table is empty or not
+	 * @return boolean - TRUE if hash table is empty, FALSE if it is not
+	 */
 	public boolean isEmpty()
 	{
 		return false;
 	}
 
-	public boolean makeEmpty()
+	/*
+	 * Resets the hash table
+	 */
+	public void makeEmpty()
 	{
-		return false;
+		
 	}
 
+	/*
+	 * Prints out the hash table
+	 */
 	public void printTable()
 	{
 
 	}
 
+	/*
+	 * Returns a new Iter object
+	 * @return Iterator - the new iterator
+	 */
 	public Iterator iterator()
 	{
 		return new Iter();
