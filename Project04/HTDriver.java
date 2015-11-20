@@ -35,7 +35,7 @@ public class HTDriver
 
 			//
 			FileInputStream input = new FileInputStream(filename);
-			//
+			// reading the file
 			Scanner sc = new Scanner(input);
 
 			// define count for hash table
@@ -110,8 +110,56 @@ public class HTDriver
 						break;
 
 					case 'd':
+						System.out.println("Enter one (type long) integer: ");
+						if(scanner.hasNext())
+						{
+							id = scanner.nextLong();
+
+							if(id > 0)
+							{
+								Student temp = new Student(id,"");
+								table.delete(temp);
+								System.out.println(temp.toString() + " deleted.");
+							}
+							else
+							{
+								System.out.println("Invalid ID");
+							}	
+						}
+						else
+						{
+							System.out.println("Incorrect input");
+						}
+						break;
 
 					case 'f':
+						System.out.println("Enter one (type long) integer: ");
+						if(scanner.hasNext())
+						{
+							id = scanner.nextLong();
+
+							if(id > 0)
+							{
+								Student temp = new Student(id,"");
+								if(table.find(temp) != null)
+								{
+									System.out.println(temp.toString() + " found");
+								}
+								else
+								{
+									System.out.println("ID not found.");
+								}
+								scanner.nextLine();
+							}
+							else
+							{
+								System.out.println("Incorrect input");
+							}
+						}
+						else
+						{
+							System.out.println("Incorrect input");
+						}
 
 					case 'n':
 						System.out.println(table.elementCount() + "elements in table");
