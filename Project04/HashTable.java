@@ -149,12 +149,14 @@ public class HashTable {
 		if(table[index] == null) {
 			table[index] = new HashEntry(toAdd);
 			occupiedCells++;
-		}
-		
-		else {
+			
 			if(occupiedCells >= table.length / 2) {
 				rehashTable();
 			}
+		}
+		
+		else {
+			table[index].isActive = true;
 		}
 	}
 	
@@ -254,15 +256,15 @@ public class HashTable {
 	public void printTable() {
 		for(int i = 0; i < table.length; i++) {
 			if(table[i] == null) {
-				System.out.println('[' + i + "]: empty");
+				System.out.println("[" + i + "]: empty");
 			}
 			
 			else if(!table[i].isActive) {
-				System.out.println('[' + i + "]:" + table[i].element + "inactive");
+				System.out.println("[" + i + "]:" + table[i].element + ", inactive");
 			}
 			
 			else {
-				System.out.println('[' + i + "]:" + table[i].element + "active");
+				System.out.println("[" + i + "]:" + table[i].element + ", active");
 			}
 		}
 	}
