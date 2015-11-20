@@ -149,7 +149,6 @@ public class HashTable {
 		if(table[index] == null) {
 			table[index] = new HashEntry(toAdd);
 			occupiedCells++;
-			
 			if(occupiedCells >= table.length / 2) {
 				rehashTable();
 			}
@@ -160,13 +159,24 @@ public class HashTable {
 		}
 	}
 	
+	/*
+	 * Increase size of hash table when necessary
+	 */
 	private void rehashTable() {
 		int newSize = nextPrime(2 * table.length);
 		HashEntry newTable[] = new HashEntry[newSize];
 		
 		// copy the old table values into new resized table
-		for(int i = 0; i < table.length; i++) {
-			newTable[i] = table[i];
+		for(int i = 0; i < table.length; i++) {			
+			if(table[i] != null && table[i].isActive) {
+				
+				int index = hash(newTable[i].element);
+				newTable[index] = table[i];
+			}
+
+//			else {
+//				newTable[i] = null;
+//			}
 		}
 		
 		// point table to our new table
@@ -206,11 +216,11 @@ public class HashTable {
 			index = (hashCode + ctr^2) % table.length;
 		}
 		
-		if(table[index].isActive) {
-			return table[index].element;
+		if(table[index] == null | !table[index].isActive) {
+			return null;
 		}
 		
-		return null;
+		return table[index].element;
 	}
 
 	/*
@@ -235,10 +245,10 @@ public class HashTable {
 	 */
 	public boolean isEmpty() {
 		if(occupiedCells == 0) {
-			return false;
+			return true;
 		}
 		
-		return true;
+		return false;
 	}
 
 	/*
