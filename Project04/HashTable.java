@@ -95,10 +95,14 @@ public class HashTable {
 		}
 
 		/*
-		 * Check to see if Iter has a next object to visit
+		 * Check to see if Iter has a next object to visit before end of table
 		 * @return boolean - whether another object exists or not
 		 */
 		public boolean hasNext() {
+			if(cursor < table.length) {
+				return true;
+			}
+			
 			return false;
 		}
 
@@ -112,7 +116,15 @@ public class HashTable {
 				throw new NoSuchElementException("Iterator did not have another element");
 			}
 			
-			return null;
+			Object current = table[cursor];
+			cursor++;
+			
+			// go to next valid element
+			while(hasNext() && (table[cursor] == null || !table[cursor].isActive)) {
+				cursor++;
+			}
+			
+			return current;
 		}
 
 		// not supported
