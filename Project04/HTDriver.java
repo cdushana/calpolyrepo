@@ -59,7 +59,7 @@ public class HTDriver
 						table.insert(student);
 					}
 				}
-				catch(Exception e) {}
+				catch(NoSuchElementException e) {}
 			}
 
 			System.out.println("Choose one of the following operations by entering provided letter:");
@@ -78,30 +78,32 @@ public class HTDriver
 			while(run)
 			{
 				// get user input
-				String str = sc.next();
+				String str = scanner.next();
 				char character = str.charAt(0);
 				
 				switch(character)
 				{
 					case 'a':
 						System.out.println("Enter a Student ID and last name (separated by a space):");
-						if(scanner.hasNext())
-						{
+						if(scanner.hasNextLine()) {
+							scanner.nextLine(); // done to read out extra newline character
 							line = new Scanner(scanner.nextLine());
 
-							id = line.nextLong();
-							lastName = line.next();
+							try {
+								id = line.nextLong();
+								lastName = line.next();
 
-							if(!line.hasNext() && id > 0)
-							{
-								student = new Student(id, lastName);
-								table.insert(student);
-								System.out.println(student.toString() + "added to table");
+								if(!line.hasNext() && id > 0){
+									student = new Student(id, lastName);
+									table.insert(student);
+									System.out.println(student.toString() + " added to table");
+								}
+				
+								else {
+									System.out.println("Incorrect input");
+								}
 							}
-							else
-							{
-								System.out.println("Incorrect input");
-							}
+							catch(NoSuchElementException e) {}
 						}
 						else
 						{
@@ -203,7 +205,7 @@ public class HTDriver
 
 			scanner.close();
 		}
-		catch(Exception e)
+		catch(FileNotFoundException e)
 		{
 			System.out.println("File Not Found.");
 		}
