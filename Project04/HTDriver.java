@@ -160,6 +160,7 @@ public class HTDriver
 						{
 							System.out.println("Incorrect input");
 						}
+						break;
 
 					case 'n':
 						System.out.println(table.elementCount() + "elements in table");
@@ -178,8 +179,17 @@ public class HTDriver
 						break;
 
 					case 'p':
+						table.printTable();
+						break;
 
 					case 'o':
+						Iterator iter = table.iterator();
+
+						while(iter.hasNext())
+						{
+							System.out.println(iter.next());
+						}
+						break;
 
 					case 'q': 
 						System.out.println("quitting");
@@ -191,7 +201,7 @@ public class HTDriver
 				}
 			}
 
-			// close scanner?
+			scanner.close();
 		}
 		catch(Exception e)
 		{
