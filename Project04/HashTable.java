@@ -125,38 +125,71 @@ public class HashTable {
 	 * Adds the given item to the hash table
 	 * @param Object - the item to add
 	 */
-	public void insert(Object item)
-	{
-		// nothing will be done if item is already in table & active
-		// does not allow duplicates
-
+	public void insert(Object toAdd) {
+		int hashCode = hash(toAdd);
+		int index = hashCode;
+		int ctr = 0;
+		
+		while(table[index] != null && !toAdd.equals(table[index].element)) {
+			ctr++;
+			index = (hashCode + ctr^2) % table.length;
+		}
+		
+		if(table[index] == null) {
+			table[index] = new HashEntry(toAdd);
+			occupiedCells++;
+		}
+		
+		else {
+			
+		}
 	}
 
 	/*
 	 * Removes the given item from the table
 	 * @param Object - the item to remove from table
 	 */
-	public void delete(Object item)
-	{
-
+	public void delete(Object toDelete) {
+		int hashCode = hash(toDelete);
+		int index = hashCode;
+		int ctr = 0;
+		
+		while(table[index] != null && !toDelete.equals(table[index].element)) {
+			ctr++;
+			index = (hashCode + ctr^2) % table.length;
+		}
+		
+		if(table[index].isActive) {
+			table[index].isActive = false;
+		}
 	}
 
 	/*
 	 * Attempts to find given item in the hash table and returns it
 	 * @return Object/null - the object if it was found, null if it was not
 	 */
-	public Object find(Object item)	{
+	public Object find(Object toFind)	{
+		int hashCode = hash(toFind);
+		int index = hashCode;
+		int ctr = 0;
 		
+		while(table[index] != null && !toFind.equals(table[index].element)) {
+			ctr++;
+			index = (hashCode + ctr^2) % table.length;
+		}
+		
+		if(table[index].isActive) {
+			return table[index].element;
+		}
 		
 		return null;
 	}
 
 	/*
-	 * Returns the number of elements in the hash table
-	 * @return int - the number of elements in the table
+	 * Returns the number of active elements in the hash table
+	 * @return int - the number of elements in the table (active only)
 	 */
-	public int elementCount()
-	{
+	public int elementCount() {
 		return 0;
 	}
 
@@ -164,24 +197,27 @@ public class HashTable {
 	 * Determines whether the hash table is empty or not
 	 * @return boolean - TRUE if hash table is empty, FALSE if it is not
 	 */
-	public boolean isEmpty()
-	{
-		return false;
+	public boolean isEmpty() {
+		if(occupiedCells == 0) {
+			return false;
+		}
+		
+		return true;
 	}
 
 	/*
 	 * Resets the hash table
 	 */
-	public void makeEmpty()
-	{
+	public void makeEmpty() {
+		table = new HashEntry[table.length]; // clear table
 		
+		occupiedCells = 0; //reset element count
 	}
 
 	/*
 	 * Prints out the hash table
 	 */
-	public void printTable()
-	{
+	public void printTable() {
 
 	}
 
@@ -189,30 +225,7 @@ public class HashTable {
 	 * Returns a new Iter object
 	 * @return Iterator - the new iterator
 	 */
-	public Iterator iterator()
-	{
+	public Iterator iterator() {
 		return new Iter();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
