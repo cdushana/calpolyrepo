@@ -240,15 +240,15 @@ public class HashTable {
 	public void printTable() {
 		for(int i = 0; i < table.length; i++) {
 			if(table[i] == null) {
-				System.out.println();
+				System.out.println('[' + i + "]: empty");
 			}
 			
 			else if(!table[i].isActive) {
-				System.out.println();
+				System.out.println('[' + i + "]:" + table[i].element + "inactive");
 			}
 			
 			else {
-				System.out.println();
+				System.out.println('[' + i + "]:" + table[i].element + "active");
 			}
 		}
 	}
