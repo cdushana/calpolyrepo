@@ -190,7 +190,15 @@ public class HashTable {
 	 * @return int - the number of elements in the table (active only)
 	 */
 	public int elementCount() {
-		return 0;
+		int count = 0;
+		
+		for(int i = 0; i < table.length; i++) {
+			if(table[i] != null && table[i].isActive) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 
 	/*
@@ -215,10 +223,22 @@ public class HashTable {
 	}
 
 	/*
-	 * Prints out the hash table
+	 * Prints out the hash table 
 	 */
 	public void printTable() {
-
+		for(int i = 0; i < table.length; i++) {
+			if(table[i] == null) {
+				System.out.println();
+			}
+			
+			else if(!table[i].isActive) {
+				System.out.println();
+			}
+			
+			else {
+				System.out.println();
+			}
+		}
 	}
 
 	/*
