@@ -113,42 +113,50 @@ public class HTDriver
 
 					case 'd':
 						System.out.println("Enter one (type long) integer: ");
-						if(scanner.hasNext())
+						if(scanner.hasNextLine())
 						{
+							scanner.nextLine();
 							id = scanner.nextLong();
 
 							if(id > 0)
 							{
 								Student temp = new Student(id,"");
-								table.delete(temp);
-								System.out.println(temp.toString() + " deleted.");
+								temp = (Student) table.find(temp);
+								if(temp != null) {
+									table.delete(temp);
+									System.out.println(temp.toString() + " deleted.");
+								}
+								else {
+									System.out.println("ID was not found in database");
+								}
 							}
 							else
 							{
 								System.out.println("Invalid ID");
 							}	
 						}
-						else
-						{
+						
+						else {
 							System.out.println("Incorrect input");
 						}
 						break;
 
 					case 'f':
 						System.out.println("Enter one (type long) integer: ");
-						if(scanner.hasNext())
+						if(scanner.hasNextLine())
 						{
+							scanner.nextLine();
 							id = scanner.nextLong();
 
 							if(id > 0)
 							{
 								Student temp = new Student(id,"");
-								if(table.find(temp) != null)
-								{
+								temp = (Student) table.find(temp);
+								
+								if(temp != null) {
 									System.out.println(temp.toString() + " found");
 								}
-								else
-								{
+								else {
 									System.out.println("ID not found.");
 								}
 								scanner.nextLine();
@@ -165,7 +173,7 @@ public class HTDriver
 						break;
 
 					case 'n':
-						System.out.println(table.elementCount() + "elements in table");
+						System.out.println(table.elementCount() + " elements in table");
 						break;
 
 					case 'e':
