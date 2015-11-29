@@ -114,15 +114,18 @@ public class HashTable {
 			if(!hasNext()) {
 				throw new NoSuchElementException("Iterator did not have another element");
 			}
-			
-			Object current = table[cursor];
+			if(table[cursor] == null) {
+				while(hasNext() && (table[cursor] == null || !table[cursor].isActive)) {
+				cursor++;
+			}
+			}
+			Object current = table[cursor].element;
 			cursor++;
 			
 			// go to next valid element
 			while(hasNext() && (table[cursor] == null || !table[cursor].isActive)) {
 				cursor++;
 			}
-			
 			return current;
 		}
 
@@ -173,10 +176,6 @@ public class HashTable {
 				int index = hash(newTable[i].element);
 				newTable[index] = table[i];
 			}
-
-//			else {
-//				newTable[i] = null;
-//			}
 		}
 		
 		// point table to our new table
