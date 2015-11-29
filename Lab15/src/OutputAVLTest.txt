@@ -1,0 +1,116 @@
+Choose one of the following operations:
+-- add an element to the AVL tree (enter the letter a)
+-- print out the AVL tree (enter the letter p)
+-- quit (enter the letter q)
+a
+What would you like to add to the AVL tree?
+40
+40 added to tree
+a
+What would you like to add to the AVL tree?
+30
+30 added to tree
+a
+What would you like to add to the AVL tree?
+20
+20 added to tree
+a
+What would you like to add to the AVL tree?
+10
+10 added to tree
+p
+
+30
+   20
+      10
+   40
+a
+What would you like to add to the AVL tree?
+5
+5 added to tree
+p
+
+30
+   10
+      5
+      20
+   40
+a
+What would you like to add to the AVL tree?
+25
+25 added to tree
+p
+
+20
+   10
+      5
+   30
+      25
+      40
+a
+What would you like to add to the AVL tree?
+7
+7 added to tree
+p
+
+20
+   7
+      5
+      10
+   30
+      25
+      40
+a
+What would you like to add to the AVL tree?
+45
+45 added to tree
+a
+What would you like to add to the AVL tree?
+50
+50 added to tree
+p
+
+20
+   7
+      5
+      10
+   30
+      25
+      45
+         40
+         50
+a
+What would you like to add to the AVL tree?
+35
+35 added to tree
+p
+
+20
+   7
+      5
+      10
+   40
+      30
+         25
+         35
+      45
+         50
+a
+What would you like to add to the AVL tree?
+37
+37 added to tree
+p
+
+30
+   20
+      7
+         5
+         10
+      25
+   40
+      35
+         37
+      45
+         50
+q
+quitting

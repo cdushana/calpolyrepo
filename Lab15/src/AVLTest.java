@@ -5,7 +5,7 @@
  * @version Lab 15
  * @version CPE103-9/10
  * @version Fall 2015
- * @version 11/22/15
+ * @version 11/28/15
  */
 import java.util.Scanner;
 
@@ -33,13 +33,24 @@ public class AVLTest {
 			{
 				case 'a': 
 					System.out.println("What would you like to add to the AVL tree?");
-					int toAdd = scanner.nextInt();
-					scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
-					treeAVL.insert(toAdd);
-					System.out.println(toAdd + " added to hash table");
+					
+					if(scanner.hasNextInt())
+					{
+						int toAdd = scanner.nextInt();
+						scanner.nextLine(); // this is done to make sure any extra newlines etc. are thrown away
+						treeAVL.insert(toAdd);
+						System.out.println(toAdd + " added to tree");
+					}
+					else
+					{
+						System.out.println("Invalid value.");
+						scanner.nextLine();
+					}
+
 					break;
 				case 'p': 
 					treeAVL.print();
+					System.out.println();
 					break;
 				case 'q': 
 					System.out.println("quitting");
