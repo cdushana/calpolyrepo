@@ -30,9 +30,7 @@ public class DiGraphAM {
 	}
 
 	public int vertexCount() {
-		int verteces = 0;
-		
-		return verteces;
+		return adjTable.length;
 	}
 	
 	public void print() {
