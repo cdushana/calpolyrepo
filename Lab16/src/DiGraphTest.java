@@ -7,6 +7,7 @@ public class DiGraphTest {
 		
 		System.out.println("Please enter the number of verteces");
 		int size = scanner.nextInt();
+		scanner.nextLine(); // throws out extra newline char
 		
 		DiGraphAM graph = new DiGraphAM(size);
 	
@@ -36,6 +37,7 @@ public class DiGraphTest {
 					System.out.println("Enter two verteces separated by space");
 					int a1 = scanner.nextInt();
 					int a2 = scanner.nextInt();
+					scanner.nextLine(); //throws out extra newline character
 					graph.addEdge(a1, a2);
 					System.out.println("Edge (" + a1 + ", " + a2 + ") was added.");
 					break;
@@ -44,7 +46,8 @@ public class DiGraphTest {
 					System.out.println("Enter two verteces separated by space");
 					int d1 = scanner.nextInt();
 					int d2 = scanner.nextInt();
-					graph.addEdge(d1, d2);
+					scanner.nextLine(); //throws out extra newline character
+					graph.deleteEdge(d1, d2);
 					System.out.println("Edge (" + d1 + ", " + d2 + ") was removed.");
 					break;
 
@@ -53,7 +56,7 @@ public class DiGraphTest {
 					break;
 
 				case 'v': 
-					System.out.println("# of verteces: " + graph.vertexCount());					
+					System.out.println("# of vertices: " + graph.vertexCount());					
 					break;
 
 				case 'p': 
