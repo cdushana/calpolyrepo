@@ -114,7 +114,7 @@ public class DiGraphAM {
 		boolean done = false;
 		
 		while(!done) {
-			for(int i = 0; i < indegrees.length; i++) {
+			for(int i = 0; i < adjTable.length; i++) {
 				// if indegree is now 0, queue it for printing
 				if(degrees[i] == 0) {
 					topQueue.enqueue(i);
@@ -127,8 +127,8 @@ public class DiGraphAM {
 			}
 			
 			while(topQueue.isEmpty()) {
-				sortVerts[index] = topQueue.dequeue();
-				index++;
+				sortVerts[sortIndex] = topQueue.dequeue();
+				sortIndex++;
 			}
 			
 			// if we have enqueued and added everything, we're done
