@@ -100,6 +100,7 @@ public class DiGraphAM {
 	public int[] topSort() {
 		int[] sortVerts = new int[vertexCount()];
 		int[] degrees = indegrees();
+		LQueue<Integer> topQueue = new LQueue<Integer>();
 		
 		for(int i = 0; i < sortVerts.length - 1; i++) {
 			// use a sort algorithm here
