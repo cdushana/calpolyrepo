@@ -41,7 +41,7 @@ public class BasicAVL {
 		else if(element < current.element)
 		{
 			current.left = insert(element, current.left);
-			if(current.left.height - height(current.right) == 2)
+			if(height(current.left) - height(current.right) == 2)
 			{
 				if(element < current.left.element)
 				{
@@ -56,7 +56,7 @@ public class BasicAVL {
 		else if(element > current.element)
 		{
 			current.right = insert(element, current.right);
-			if(current.right.height - height(current.left) == 2)
+			if(height(current.right) - height(current.left) == 2)
 			{
 				if(element > current.right.element)
 				{
@@ -79,23 +79,23 @@ public class BasicAVL {
 		n2.left = n1.right;
 		n1.right = n2;
 
-		if(height(n2.left) < height(n2.right))
-		{
-			n2.height = 1 + height(n2.right);
-		}
-		else
-		{
-			n2.height = 1 + height(n2.left);
-		}
+		// if(height(n2.left) < height(n2.right))
+		// {
+		// 	n2.height = 1 + height(n2.right);
+		// }
+		// else
+		// {
+		// 	n2.height = 1 + height(n2.left);
+		// }
 
-		if(height(n1.left) < height(n1.right))
-		{
-			n1.height = 1 + height(n1.right);
-		}
-		else
-		{
-			n1.height = 1 + height(n1.left);
-		}
+		// if(height(n1.left) < height(n1.right))
+		// {
+		// 	n1.height = 1 + height(n1.right);
+		// }
+		// else
+		// {
+		// 	n1.height = 1 + height(n1.left);
+		// }
 
 		return n1;
 	}
@@ -118,23 +118,23 @@ public class BasicAVL {
 		n1.right = n2.left;
 		n2.left = n1;
 
-		if(height(n1.left) < height(n1.right))
-		{
-			n1.height = 1 + height(n1.right);
-		}
-		else
-		{
-			n1.height = 1 + height(n1.left);
-		}
+		// if(height(n1.left) < height(n1.right))
+		// {
+		// 	n1.height = 1 + height(n1.right);
+		// }
+		// else
+		// {
+		// 	n1.height = 1 + height(n1.left);
+		// }
 
-		if(height(n2.left) < height(n2.right))
-		{
-			n2.height = 1 + height(n2.right);
-		}
-		else
-		{
-			n2.height = 1 + height(n2.left);
-		}
+		// if(height(n2.left) < height(n2.right))
+		// {
+		// 	n2.height = 1 + height(n2.right);
+		// }
+		// else
+		// {
+		// 	n2.height = 1 + height(n2.left);
+		// }
 
 		return n2;
 	}
@@ -144,14 +144,28 @@ public class BasicAVL {
 	 * @return int - the height of the AVL tree.
 	 */
 	private int height(AVLNode current) {
+		// if(current != null)
+		// {
+		// 	return current.height;
+		// }
+		// else
+		// {
+		// 	return -1;
+		// }
+
 		if(current != null)
 		{
-			return current.height;
+			if(height(current.left) > height(current.right))
+			{
+				return 1 + height(current.left);
+			}
+			else
+			{
+				return 1 + height(current.right);
+			}
 		}
-		else
-		{
-			return -1;
-		}
+
+		return -1;
 	}
 	
 	/*
