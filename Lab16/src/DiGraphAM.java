@@ -96,18 +96,44 @@ public class DiGraphAM {
 	
 	/*
 	 * Sorts vertices based on indegree values (height along the graph)
+	 * NOTE: This is probably a pretty messy algorithm because of lots of loops.
+	 * However, on this project, we are not dealing with huge data sets but I recognize
+	 * runtime could be problematic if dealing with very large graphs
 	 */
 	public int[] topSort() {
 		// array that will be returned with sorted vertex indexes
 		int[] sortVerts = new int[vertexCount()];
+		int sortIndex = 0; // keeps track of place in above array
+		int enqueued = 0;
+		
 		// indegree values for each corresponding vertex
 		int[] degrees = indegrees();
+		
 		LQueue<Integer> topQueue = new LQueue<Integer>();
 		
-		// queue up indegree values
-		for(int i = 0; i < indegrees.length - 1; i++) {
-			if(degrees[i] == 0) {
-				topQueue.enqueue(i);
+		boolean done = false;
+		
+		while(!done) {
+			for(int i = 0; i < indegrees.length; i++) {
+				// if indegree is now 0, queue it for printing
+				if(degrees[i] == 0) {
+					topQueue.enqueue(i);
+					enqueued++;
+				}
+				// shortcut: if not yet 0, reduce by 1 for next round
+				else {
+					degrees[i]--;
+				}
+			}
+			
+			while(topQueue.isEmpty()) {
+				sortVerts[index] = topQueue.dequeue();
+				index++;
+			}
+			
+			// if we have enqueued and added everything, we're done
+			if(enqueued == vertexCount()) {
+				done = true;
 			}
 		}
 		
